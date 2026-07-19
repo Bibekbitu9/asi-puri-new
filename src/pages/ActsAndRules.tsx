@@ -3,13 +3,13 @@ import { Helmet } from 'react-helmet-async';
 
 export default function ActsAndRules() {
   const documents = [
-    { title: "Right To Information Act", href: "https://www.asiaurangabadcircle.com/assets/files/ACT-1958.pdf" },
-    { title: "The Gazette of India", href: "https://www.asiaurangabadcircle.com/assets/files/AMASR_Act2010_Gazette_Notification_new.pdf" },
-    { title: "National Monument Authority Rules by PMO 2010", href: "https://www.asiaurangabadcircle.com/assets/files/NMA_Rules_Final_by_PMO_24.12.2010.pdf" },
-    { title: "National Monument Authority Rules 2011", href: "https://www.asiaurangabadcircle.com/assets/files/National-Monument-Authority-Rules-20111.pdf" },
-    { title: "Ancient Monuments and Archaeological Sites and Remains Act 1958", href: "https://www.asiaurangabadcircle.com/assets/files/AMAASAR-ACT-1958.pdf" },
-    { title: "Guidelines on RTI - (i)", href: "https://www.asiaurangabadcircle.com/assets/files/Rule-1959.pdf" },
-    { title: "Guidelines on RTI - (ii)", href: "https://www.asiaurangabadcircle.com/assets/files/Rule-2010.pdf" }
+    { title: "Right To Information Act", href: "/acts-and-rules/ACT-1958.pdf" },
+    { title: "The Gazette of India", href: "/acts-and-rules/AMASR_Act2010_Gazette_Notification_new.pdf" },
+    { title: "National Monument Authority Rules by PMO 2010", href: "/acts-and-rules/NMA_Rules_Final_by_PMO_24.12.2010.pdf" },
+    { title: "National Monument Authority Rules 2011", href: "/acts-and-rules/National-Monument-Authority-Rules-20111.pdf" },
+    { title: "Ancient Monuments and Archaeological Sites and Remains Act 1958", href: "/acts-and-rules/AMAASAR-ACT-1958.pdf" },
+    { title: "Guidelines on RTI - (i)", href: "/acts-and-rules/Rule-1959.pdf" },
+    { title: "Guidelines on RTI - (ii)", href: "/acts-and-rules/Rule-2010.pdf" }
   ];
 
   return (
