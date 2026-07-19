@@ -187,7 +187,7 @@ export default function Header() {
       {/* ==================================================== */}
       {/* DESKTOP TIER 2: Sub-Header Navigation (Sticky) */}
       {/* ==================================================== */}
-      <div className={`hidden lg:block sticky top-0 z-50 w-full transition-all duration-300 ${scrolled ? 'bg-[#2D1810]/95 backdrop-blur-2xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] border-b border-[#C19A6B]/30' : 'bg-[#150a06]/80 backdrop-blur-sm border-y border-white/5 shadow-inner'}`}>
+      <div className={`hidden lg:block sticky top-0 z-50 w-full transition-all duration-300 ${scrolled ? 'bg-gradient-to-r from-[#2D1810]/95 via-[#4A2818]/95 to-[#5C321E]/95 backdrop-blur-2xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] border-b border-[#C19A6B]/30' : 'bg-gradient-to-r from-[#150a06]/90 via-[#2a140d]/90 to-[#1a0c07]/90 backdrop-blur-sm border-y border-white/5 shadow-inner'}`}>
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <nav className="flex justify-center items-center h-10 gap-10 xl:gap-14">
             {navItems.map(item => {
