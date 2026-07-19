@@ -6,9 +6,10 @@ export default function Publications() {
   const endYear = 2013;
   const publications = [];
   
-  for (let y = startYear; y <= endYear; y++) {
+  for (let y = endYear; y >= startYear; y--) {
+    const nextYear = (y + 1).toString().slice(-2);
     publications.push({
-      title: `${y}-${y + 1}`,
+      title: `${y}-${nextYear}`,
       href: `https://www.asiaurangabadcircle.com/admin/uploads/${y}-${y + 1}.pdf`
     });
   }
