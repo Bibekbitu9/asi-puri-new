@@ -11,6 +11,13 @@ const Monuments = lazy(() => import('./pages/Monuments'));
 const MonumentDetail = lazy(() => import('./pages/MonumentDetail'));
 const AboutUs = lazy(() => import('./pages/AboutUs'));
 
+const ActsAndRules = lazy(() => import('./pages/ActsAndRules'));
+const Publications = lazy(() => import('./pages/Publications'));
+const Excavations = lazy(() => import('./pages/Excavations'));
+const Explorations = lazy(() => import('./pages/Explorations'));
+const Conservation = lazy(() => import('./pages/Conservation'));
+const ContactUs = lazy(() => import('./pages/ContactUs'));
+
 import KonarkLoader from './components/KonarkLoader';
 
 // Loading Fallback Component
@@ -31,6 +38,12 @@ function AnimatedRoutes() {
         <Route path="/monuments" element={<Monuments />} />
         <Route path="/monuments/:id" element={<MonumentDetail />} />
         <Route path="/about" element={<AboutUs />} />
+        <Route path="/acts-and-rules" element={<ActsAndRules />} />
+        <Route path="/publications" element={<Publications />} />
+        <Route path="/excavations" element={<Excavations />} />
+        <Route path="/explorations" element={<Explorations />} />
+        <Route path="/conservation" element={<Conservation />} />
+        <Route path="/contact-us" element={<ContactUs />} />
       </Routes>
     </AnimatePresence>
   );
