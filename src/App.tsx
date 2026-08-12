@@ -53,7 +53,7 @@ export default function App() {
   return (
     <HelmetProvider>
       <Router>
-        <div className="flex flex-col min-h-screen bg-[#F5F0E8] text-[#2D1810] font-sans selection:bg-[#C4873B]/30 selection:text-[#2D1810]">
+        <div className="flex flex-col min-h-screen text-[#2D1810] font-sans selection:bg-[#C4873B]/30 selection:text-[#2D1810]">
           <Header />
           
           <main className="flex-grow flex flex-col" id="main-content">

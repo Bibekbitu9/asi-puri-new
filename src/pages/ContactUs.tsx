@@ -9,7 +9,7 @@ export default function ContactUs() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="bg-[var(--color-surface)] min-h-screen py-16"
+      className="bg-transparent min-h-screen py-16"
     >
       <Helmet>
         <title>Contact Us - ASI</title>

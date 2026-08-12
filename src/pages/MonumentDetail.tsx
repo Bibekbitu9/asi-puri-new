@@ -45,7 +45,7 @@ export default function MonumentDetail() {
 
   if (!monument) {
     return (
-      <div className="py-20 text-center min-h-screen bg-[var(--color-neutral)] flex flex-col justify-center items-center px-4">
+      <div className="py-20 text-center min-h-screen bg-transparent flex flex-col justify-center items-center px-4">
         <AlertCircle className="w-16 h-16 text-[var(--color-primary)] mb-4 animate-bounce" />
         <h1 className="font-serif text-2xl sm:text-3xl font-bold text-[var(--color-dark-stone)] mb-4">Monument Not Found</h1>
         <Link 
@@ -76,7 +76,7 @@ export default function MonumentDetail() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="bg-[var(--color-neutral)] min-h-screen pb-20 flex flex-col"
+      className="bg-transparent min-h-screen pb-20 flex flex-col"
     >
       <SEO title={name} description={paragraphs[0]?.substring(0, 150) + '...'} image={monument.images[0]} />
 

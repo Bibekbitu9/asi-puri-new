@@ -33,6 +33,10 @@
 
 body {
   font-family: var(--font-sans);
+  background-image: url('/BG.png');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
   background-color: var(--color-neutral);
   color: var(--color-dark-brown);
 }

@@ -115,7 +115,7 @@ export default function Monuments() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="py-12 px-4 sm:px-6 lg:px-8 bg-[var(--color-neutral)] min-h-screen"
+      className="py-12 px-4 sm:px-6 lg:px-8 bg-transparent min-h-screen"
     >
       <SEO title={t('nav.monuments') || 'Monuments'} />
       <div className="max-w-7xl mx-auto space-y-12">

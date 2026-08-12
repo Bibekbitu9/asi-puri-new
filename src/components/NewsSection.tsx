@@ -22,7 +22,7 @@ const newsData = [
 
 export default function NewsSection() {
   return (
-    <section className="py-16 md:py-24 bg-[var(--color-neutral)] relative overflow-hidden" id="news-press">
+    <section className="py-16 md:py-24 bg-transparent relative overflow-hidden" id="news-press">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -33,7 +33,7 @@ export default function NewsSection() {
           <span className="text-[var(--color-primary)] font-bold uppercase tracking-[0.2em] text-xs block">
             Media & Press
           </span>
-          <h2 className="font-serif text-[1.75rem] md:text-[2.5rem] text-[var(--color-dark-stone)] leading-tight">
+          <h2 className="font-serif text-[1.75rem] md:text-[2.5rem] font-bold text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-indigo)] via-[#A8451A] to-[var(--color-saffron)] leading-tight">
             News & Events
           </h2>
         </motion.div>
@@ -62,7 +62,7 @@ export default function NewsSection() {
                 </div>
               </div>
               <div className="p-8 flex flex-col flex-grow">
-                <h3 className="font-serif text-xl md:text-2xl font-bold text-[var(--color-dark-stone)] mb-4 leading-snug group-hover:text-[var(--color-primary)] transition-colors">
+                <h3 className="font-serif text-xl md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-indigo)] via-[#A8451A] to-[var(--color-saffron)] mb-4 leading-snug group-hover:text-[var(--color-primary)] transition-colors">
                   {news.title}
                 </h3>
                 <p className="text-[var(--color-dark-stone)] opacity-70 text-sm leading-relaxed mb-8 flex-grow">

@@ -15,7 +15,7 @@ export default function Publications() {
   }
 
   return (
-    <div className="bg-[var(--color-surface)] text-[var(--color-dark-stone)] min-h-screen py-16">
+    <div className="bg-transparent text-[var(--color-dark-stone)] min-h-screen py-16">
       <Helmet>
         <title>Publications - ASI</title>
       </Helmet>

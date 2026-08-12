@@ -71,7 +71,7 @@ export default function Home() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="w-full bg-[var(--color-neutral)] text-[var(--color-dark-stone)]"
+      className="w-full bg-transparent text-[var(--color-dark-stone)]"
     >
       <SEO title={t('nav.home') || 'Home'} />
       
@@ -82,7 +82,7 @@ export default function Home() {
       <HomeSearchBar />
 
       {/* Welcome Section - Divine Glassmorphism */}
-      <section className="py-16 md:py-24 bg-[var(--color-surface)] relative overflow-hidden" id="welcome-message">
+      <section className="py-16 md:py-24 bg-transparent relative overflow-hidden" id="welcome-message">
         {/* Background glows */}
         <div className="absolute top-0 right-[-10%] w-[50%] h-[50%] rounded-full bg-[var(--color-muted-gold)] opacity-15 blur-[120px] pointer-events-none" />
         <div className="absolute bottom-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-[var(--color-saffron)] opacity-10 blur-[120px] pointer-events-none" />
@@ -195,7 +195,7 @@ export default function Home() {
       </section>
 
       {/* Featured Monuments Section - Timeline/Cinematic Layout */}
-      <section className="py-16 md:py-32 bg-[var(--color-neutral)] relative overflow-hidden" id="featured-monuments">
+      <section className="py-16 md:py-32 bg-transparent relative overflow-hidden" id="featured-monuments">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -206,7 +206,7 @@ export default function Home() {
             <span className="text-[var(--color-primary)] font-bold uppercase tracking-[0.2em] text-xs block">
               {t('hero.subtitle')}
             </span>
-            <h2 className="font-serif text-[1.75rem] md:text-[2.5rem] text-[var(--color-dark-stone)] leading-tight">
+            <h2 className="font-serif text-[1.75rem] md:text-[2.5rem] font-bold text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-indigo)] via-[#A8451A] to-[var(--color-saffron)] leading-tight">
               {t('home.featured_monuments')}
             </h2>
           </motion.div>
@@ -254,14 +254,14 @@ export default function Home() {
                       {getMonumentIcon(m.id)}
                     </div>
                     <div className="space-y-4">
-                      <div className="text-xs font-bold tracking-widest text-[var(--color-muted-gold)] uppercase flex items-center gap-2">
-                        <MapPin className="w-4 h-4" />
+                      <div className="text-sm font-extrabold tracking-widest text-[#8C3310] uppercase flex items-center gap-2">
+                        <MapPin className="w-5 h-5" />
                         {getMonumentLocality(m)}, {getMonumentDistrict(m)}
                       </div>
-                      <h3 className="font-serif text-[1.25rem] md:text-[1.5rem] text-[var(--color-dark-stone)] leading-snug">
+                      <h3 className="font-serif text-[1.5rem] md:text-[2rem] font-bold text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-indigo)] via-[#A8451A] to-[var(--color-saffron)] leading-tight">
                         {getMonumentName(m)}
                       </h3>
-                      <p className="text-[var(--color-dark-stone)] opacity-70 text-sm leading-relaxed border-l-2 border-[var(--color-primary)] pl-4">
+                      <p className="text-[var(--color-dark-stone)] font-medium text-base md:text-lg leading-relaxed border-l-4 border-[var(--color-primary)] pl-4 bg-white/40 p-4 rounded-r-lg">
                         {m.metadata.en?.period || 'Ancient Heritage of Odisha'}
                       </p>
                     </div>

@@ -30,7 +30,7 @@ export default function AboutUs() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="w-full min-h-screen bg-[var(--color-surface)] text-[var(--color-dark-stone)] relative overflow-hidden pb-20"
+      className="w-full min-h-screen bg-transparent text-[var(--color-dark-stone)] relative overflow-hidden pb-20"
     >
       <SEO title={t('about_page.title')} />
       

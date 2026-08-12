@@ -39,7 +39,7 @@ export default function LatestUpdates() {
           <span className="text-[var(--color-primary)] font-bold uppercase tracking-[0.2em] text-xs block">
             Announcements
           </span>
-          <h2 className="font-serif text-[1.75rem] md:text-[2.5rem] leading-tight text-[var(--color-neutral)]">
+          <h2 className="font-serif text-[1.75rem] md:text-[2.5rem] font-bold text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-indigo)] via-[#A8451A] to-[var(--color-saffron)] leading-tight">
             Latest Updates
           </h2>
         </motion.div>
@@ -62,7 +62,7 @@ export default function LatestUpdates() {
                   <Calendar className="w-3 h-3" /> {update.date}
                 </span>
               </div>
-              <h3 className="font-serif text-xl font-bold mb-3 leading-snug">
+              <h3 className="font-serif text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-indigo)] via-[#A8451A] to-[var(--color-saffron)] mb-3 leading-snug">
                 {update.title}
               </h3>
               <p className="opacity-80 text-sm leading-relaxed mb-6 flex-grow">
