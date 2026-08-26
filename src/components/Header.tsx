@@ -26,8 +26,8 @@ export default function Header() {
 
   const navItems = [
     { key: 'about', path: '/about', label: 'About Us' },
+    { key: 'museums', path: '/circle-museums', label: 'Museums' },
     { key: 'acts_rules', path: '/acts-and-rules', label: 'Acts & Rules' },
-    { key: 'publication', path: '/publications', label: 'Publication' },
     { key: 'excavations', path: '/excavations', label: 'Excavations' },
     { key: 'explorations', path: '/explorations', label: 'Explorations' },
     { key: 'conservation', path: '/conservation', label: 'Conservation' },
@@ -63,7 +63,7 @@ export default function Header() {
       <header className={`lg:hidden sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#2D1810]/95 backdrop-blur-2xl shadow-xl border-b border-[#C19A6B]/30' : 'bg-gradient-to-r from-[#3A2016] via-[#5A3320] to-[#754829] shadow-md'}`}>
         <div className="px-4 py-2 flex justify-between items-center">
           <Link className="flex items-center gap-2" to="/">
-            <div className="relative p-1 bg-black/20 rounded-full ring-1 ring-white/10 shadow-inner">
+            <div className="relative">
               <Image
                 alt="ASI Puri Circle Logo"
                 className="h-8 w-8 object-contain"
@@ -138,17 +138,14 @@ export default function Header() {
             {/* Logo and Brand */}
             <Link className="flex items-center gap-4 group relative" to="/">
               <div className="relative">
-                <div className="absolute inset-0 bg-amber-500/20 rounded-full blur-md group-hover:blur-xl transition-all duration-500 opacity-0 group-hover:opacity-100 scale-90 group-hover:scale-110"></div>
-                <div className="relative p-1.5 bg-black/20 rounded-full ring-1 ring-white/10 group-hover:ring-amber-500/40 transition-all duration-500 overflow-hidden shadow-inner">
-                  <Image
-                    alt="ASI Puri Circle Logo"
-                    className="h-12 w-12 object-contain transform group-hover:scale-110 transition-transform duration-700 ease-out"
-                    src="/asi_logo.jpg.jpeg"
-                    layout="fixed"
-                    width={48}
-                    height={48}
-                  />
-                </div>
+                <Image
+                  alt="ASI Puri Circle Logo"
+                  className="h-12 w-12 object-contain transform group-hover:scale-110 transition-transform duration-700 ease-out"
+                  src="/asi_logo.jpg.jpeg"
+                  layout="fixed"
+                  width={48}
+                  height={48}
+                />
               </div>
               <div className="flex flex-col justify-center">
                 <span className="font-serif text-xl font-extrabold bg-gradient-to-r from-amber-200 via-amber-400 to-orange-400 bg-clip-text text-transparent tracking-wide uppercase leading-tight drop-shadow-md">

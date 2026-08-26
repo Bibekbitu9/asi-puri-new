@@ -10,6 +10,7 @@ const Home = lazy(() => import('./pages/Home'));
 const Monuments = lazy(() => import('./pages/Monuments'));
 const MonumentDetail = lazy(() => import('./pages/MonumentDetail'));
 const AboutUs = lazy(() => import('./pages/AboutUs'));
+const CircleMuseums = lazy(() => import('./pages/CircleMuseums'));
 
 const ActsAndRules = lazy(() => import('./pages/ActsAndRules'));
 const Publications = lazy(() => import('./pages/Publications'));
@@ -38,6 +39,7 @@ function AnimatedRoutes() {
         <Route path="/monuments" element={<Monuments />} />
         <Route path="/monuments/:id" element={<MonumentDetail />} />
         <Route path="/about" element={<AboutUs />} />
+        <Route path="/circle-museums" element={<CircleMuseums />} />
         <Route path="/acts-and-rules" element={<ActsAndRules />} />
         <Route path="/publications" element={<Publications />} />
         <Route path="/excavations" element={<Excavations />} />
@@ -53,7 +55,10 @@ export default function App() {
   return (
     <HelmetProvider>
       <Router>
-        <div className="flex flex-col min-h-screen text-[#2D1810] font-sans selection:bg-[#C4873B]/30 selection:text-[#2D1810]">
+        <div 
+          className="flex flex-col min-h-screen text-[#2D1810] font-sans selection:bg-[#C4873B]/30 selection:text-[#2D1810] bg-cover bg-center bg-fixed"
+          style={{ backgroundImage: "url('/BG.png')" }}
+        >
           <Header />
           
           <main className="flex-grow flex flex-col" id="main-content">

@@ -111,10 +111,10 @@ export default function Home() {
               <div className="p-6 md:p-8 rounded-[28px] bg-[var(--color-glass-surface)] backdrop-blur-2xl border border-[var(--color-glass-border)] shadow-[0_20px_40px_rgba(74,28,10,0.05)] relative group">
                 <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-saffron)] to-transparent opacity-0 group-hover:opacity-10 rounded-[28px] transition-opacity duration-500"></div>
                 <p className="text-[var(--color-dark-stone)] opacity-90 text-base md:text-lg leading-relaxed text-justify mb-4">
-                  {t('home.welcome_p1')}
+                  The Puri Circle was created vide notification number J-11014/3/2023-Planning, dated 9/11/2022 after bifurcation of the erstwhile Bhubaneswar Circle in the state of Odisha. The jurisdiction of the Circle includes 15 districts of Odisha.
                 </p>
                 <p className="text-[var(--color-dark-stone)] opacity-90 text-base md:text-lg leading-relaxed text-justify">
-                  {t('home.welcome_p2')}
+                  As of now there are 40 Centrally Protected monuments within its domain, including the world heritage property Sun temple Konark and the world famous Lord Jagannath temple Puri. Furthermore, three archaeological museums (Ratnagiri, Lalitagiri, and Konark) are managed under this circle.
                 </p>
               </div>
 
