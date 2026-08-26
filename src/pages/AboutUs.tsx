@@ -6,7 +6,7 @@ import { Building2, Compass, MapPin, Map, Building } from 'lucide-react';
 export default function AboutUs() {
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: { 
+    visible: {
       opacity: 1,
       transition: { staggerChildren: 0.2 }
     }
@@ -14,28 +14,28 @@ export default function AboutUs() {
 
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: { duration: 0.8 }
     }
   };
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       className="w-full min-h-screen bg-transparent text-[#E6D8B8] relative overflow-hidden pb-20"
     >
       <SEO title="About ASI Puri Circle" />
-      
+
       {/* Background Glows for depth */}
       <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-orange-600/10 blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-amber-500/15 blur-[120px] pointer-events-none" />
-      
+
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 relative z-10">
-        
+
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -54,7 +54,7 @@ export default function AboutUs() {
           <div className="w-20 h-1 bg-gradient-to-r from-[var(--color-indigo)] to-[var(--color-saffron)] mx-auto rounded-full" />
         </motion.div>
 
-        <motion.div 
+        <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -101,13 +101,13 @@ export default function AboutUs() {
                   Sub-Circles Details
                 </h2>
               </div>
-              
+
               <div className="grid grid-cols-1 gap-6">
                 {[
-                  { 
-                    name: 'Cuttack Sub-Circle', 
-                    cpm: '28 CPMs', 
-                    inCharge: 'Sr. CA Siddhartha Sankar Garai', 
+                  {
+                    name: 'Cuttack Sub-Circle',
+                    cpm: '28 CPMs',
+                    inCharge: 'Sr. CA Siddhartha Sankar Garai',
                     contact: '9474627202',
                     highlights: [
                       'Ruins of Buddhist temples and images, Nalitagiri, Dist- Cuttack',
@@ -119,29 +119,29 @@ export default function AboutUs() {
                       'The ancient monuments of Barabati Fortress and the ruins and remains of all ancient edifices, walls, gateways, etc., save and excepting the Mosque'
                     ]
                   },
-                  { 
-                    name: 'Puri Sub-Circle', 
-                    cpm: '2 CPMs', 
-                    inCharge: 'Sr. CA Sourav Tewary', 
+                  {
+                    name: 'Puri Sub-Circle',
+                    cpm: '2 CPMs',
+                    inCharge: 'Sr. CA Sourav Tewary',
                     contact: '7980703277',
                     highlights: [
                       'Shri Jagannath Temple and subsidiary shrines together with adjacent area'
                     ]
                   },
-                  { 
-                    name: 'Konark Sub Circle', 
-                    cpm: '2 CPMs', 
-                    inCharge: 'CA Trailokyanath Behera', 
+                  {
+                    name: 'Konark Sub Circle',
+                    cpm: '2 CPMs',
+                    inCharge: 'CA Trailokyanath Behera',
                     contact: '9801980199',
                     highlights: [
-                      '1. The Ancient Monument of the Black Pagoda and The Ruins and Remains of all Ancient Edifices, Images, Structures, Basements, Pillars, Carvings, Walls, Gateways etc.',
-                      '1. Archaeological Museum, Konark, Dist- Puri`'
+                      'The Ancient Monument of the Black Pagoda and The Ruins and Remains of all Ancient Edifices, Images, Structures, Basements, Pillars, Carvings, Walls, Gateways etc.',
+                      'Archaeological Museum, Konark, Dist- Puri'
                     ]
                   },
-                  { 
-                    name: 'Dhekanal Sub-Circle', 
-                    cpm: '8 CPMs', 
-                    inCharge: 'CA Jyoti Ranjan Pradhan', 
+                  {
+                    name: 'Dhekanal Sub-Circle',
+                    cpm: '8 CPMs',
+                    inCharge: 'CA Jyoti Ranjan Pradhan',
                     contact: '9348549465',
                     highlights: [
                       'Chandrasekhar Temple (Group of Monuments and Ancient Steps), Dhekannal',
