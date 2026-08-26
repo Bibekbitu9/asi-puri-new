@@ -104,8 +104,19 @@ export default function MonumentDetail() {
           >
             <ArrowLeft className="w-5 h-5" />
           </Link>
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full text-white text-xs font-bold tracking-[0.1em] uppercase">
-            {t('hero.subtitle') || 'Puri Circle'}
+          <div className="flex gap-4 items-center">
+            <select
+              className="bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full text-white text-xs font-bold uppercase cursor-pointer focus:outline-none"
+              value={i18n.language}
+              onChange={(e) => i18n.changeLanguage(e.target.value)}
+            >
+              <option value="en" className="text-black">English</option>
+              <option value="hi" className="text-black">हिंदी (Hindi)</option>
+              <option value="od" className="text-black">ଓଡ଼ିଆ (Odia)</option>
+            </select>
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full text-white text-xs font-bold tracking-[0.1em] uppercase hidden md:block">
+              {t('hero.subtitle') || 'Puri Circle'}
+            </div>
           </div>
         </div>
 

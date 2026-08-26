@@ -176,10 +176,20 @@ export default function Monuments() {
               value={selectedDistrict}
               onChange={(e) => setSelectedDistrict(e.target.value)}
             >
-              <option value="">{t('monuments.all_districts')}</option>
+              <option value="">{t('monuments.all_districts') || 'All Districts'}</option>
               {districts.map(d => (
                 <option key={d} value={d}>{d}</option>
               ))}
+            </select>
+
+            <select
+              className="w-full sm:w-auto bg-[var(--color-neutral)] border border-slate-200 rounded-xl py-2.5 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] text-[var(--color-dark-stone)] shadow-sm font-semibold transition-all"
+              value={i18n.language}
+              onChange={(e) => i18n.changeLanguage(e.target.value)}
+            >
+              <option value="en">English</option>
+              <option value="hi">हिंदी (Hindi)</option>
+              <option value="od">ଓଡ଼ିଆ (Odia)</option>
             </select>
 
             <button

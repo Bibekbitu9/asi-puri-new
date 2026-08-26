@@ -13,10 +13,7 @@ const AboutUs = lazy(() => import('./pages/AboutUs'));
 const CircleMuseums = lazy(() => import('./pages/CircleMuseums'));
 
 const ActsAndRules = lazy(() => import('./pages/ActsAndRules'));
-const Publications = lazy(() => import('./pages/Publications'));
 const Excavations = lazy(() => import('./pages/Excavations'));
-const Explorations = lazy(() => import('./pages/Explorations'));
-const Conservation = lazy(() => import('./pages/Conservation'));
 const ContactUs = lazy(() => import('./pages/ContactUs'));
 
 import KonarkLoader from './components/KonarkLoader';
@@ -41,10 +38,7 @@ function AnimatedRoutes() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/circle-museums" element={<CircleMuseums />} />
         <Route path="/acts-and-rules" element={<ActsAndRules />} />
-        <Route path="/publications" element={<Publications />} />
         <Route path="/excavations" element={<Excavations />} />
-        <Route path="/explorations" element={<Explorations />} />
-        <Route path="/conservation" element={<Conservation />} />
         <Route path="/contact-us" element={<ContactUs />} />
       </Routes>
     </AnimatePresence>

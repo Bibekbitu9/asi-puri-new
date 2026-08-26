@@ -28,10 +28,7 @@ export default function Header() {
     { key: 'about', path: '/about', label: 'About Us' },
     { key: 'museums', path: '/circle-museums', label: 'Museums' },
     { key: 'acts_rules', path: '/acts-and-rules', label: 'Acts & Rules' },
-    { key: 'publication', path: '/publications', label: 'Publications' },
     { key: 'excavations', path: '/excavations', label: 'Excavations' },
-    { key: 'explorations', path: '/explorations', label: 'Explorations' },
-    { key: 'conservation', path: '/conservation', label: 'Conservation' },
     { key: 'contact', path: '/contact-us', label: 'Contact Us' }
   ];
 
