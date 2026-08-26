@@ -28,6 +28,7 @@ export default function Header() {
     { key: 'about', path: '/about', label: 'About Us' },
     { key: 'museums', path: '/circle-museums', label: 'Museums' },
     { key: 'acts_rules', path: '/acts-and-rules', label: 'Acts & Rules' },
+    { key: 'publication', path: '/publications', label: 'Publications' },
     { key: 'excavations', path: '/excavations', label: 'Excavations' },
     { key: 'explorations', path: '/explorations', label: 'Explorations' },
     { key: 'conservation', path: '/conservation', label: 'Conservation' },
@@ -186,14 +187,14 @@ export default function Header() {
       {/* ==================================================== */}
       <div className={`hidden lg:block sticky top-0 z-50 w-full transition-all duration-300 ${scrolled ? 'bg-gradient-to-r from-[#2D1810]/95 via-[#4A2818]/95 to-[#5C321E]/95 backdrop-blur-2xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] border-b border-[#C19A6B]/30' : 'bg-gradient-to-r from-[#150a06]/90 via-[#2a140d]/90 to-[#1a0c07]/90 backdrop-blur-sm border-y border-white/5 shadow-inner'}`}>
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <nav className="flex justify-center items-center h-10 gap-10 xl:gap-14">
+          <nav className="flex flex-wrap justify-center items-center min-h-[2.5rem] py-2 gap-x-8 xl:gap-x-12 gap-y-3">
             {navItems.map(item => {
               const isActive = location.pathname === item.path;
               return (
                 <Link
                   key={item.key}
                   onClick={(e) => handleNavClick(e, item.path)}
-                  className={`group relative font-sans text-xs font-bold uppercase tracking-[0.2em] h-full flex items-center transition-all duration-300 ${
+                  className={`group relative font-sans text-xs font-bold uppercase tracking-[0.2em] flex items-center justify-center text-center py-1 transition-all duration-300 ${
                     isActive
                       ? 'text-amber-400'
                       : 'text-[#E6D8B8]/80 hover:text-amber-300'
