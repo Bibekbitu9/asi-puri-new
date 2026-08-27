@@ -26,6 +26,7 @@ export default function Header() {
 
   const navItems = [
     { key: 'about', path: '/about', label: 'About Us' },
+    { key: 'monuments', path: '/monuments', label: 'Monuments' },
     { key: 'museums', path: '/circle-museums', label: 'Museums' },
     { key: 'acts_rules', path: '/acts-and-rules', label: 'Acts & Rules' },
     { key: 'excavations', path: '/excavations', label: 'Excavations' },
