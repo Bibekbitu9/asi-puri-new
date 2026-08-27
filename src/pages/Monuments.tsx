@@ -43,6 +43,11 @@ export default function Monuments() {
     return m.metadata.en?.district || 'Other';
   };
 
+  const getMonumentDescription = (m: any) => {
+    const lang = i18n.language as 'en' | 'hi' | 'od';
+    return m.descriptions[lang] || m.descriptions.en || '';
+  };
+
   const districts = useMemo(() => {
     const set = new Set<string>();
     monumentsData.forEach(m => {
@@ -252,6 +257,10 @@ export default function Monuments() {
                           </div>
                         )}
                       </div>
+                      
+                      <p className="text-sm text-slate-600 line-clamp-3 leading-relaxed font-sans">
+                        {getMonumentDescription(m)}
+                      </p>
                     </div>
 
                     <Link
