@@ -19,9 +19,6 @@ export default function HomeSearchBar() {
 
   const getMonumentLocality = (m: any) => {
     const lang = i18n.language as 'en' | 'hi' | 'od';
-    if (lang === 'od') {
-      return m.metadata.en?.locality || '';
-    }
     return m.metadata[lang]?.locality || m.metadata.en?.locality || '';
   };
 

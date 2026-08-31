@@ -11,6 +11,7 @@ const Monuments = lazy(() => import('./pages/Monuments'));
 const MonumentDetail = lazy(() => import('./pages/MonumentDetail'));
 const AboutUs = lazy(() => import('./pages/AboutUs'));
 const CircleMuseums = lazy(() => import('./pages/CircleMuseums'));
+const Walkthrough = lazy(() => import('./pages/Walkthrough'));
 
 const ActsAndRules = lazy(() => import('./pages/ActsAndRules'));
 const Excavations = lazy(() => import('./pages/Excavations'));
@@ -37,6 +38,7 @@ function AnimatedRoutes() {
         <Route path="/monuments/:id" element={<MonumentDetail />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/circle-museums" element={<CircleMuseums />} />
+        <Route path="/walkthrough" element={<Walkthrough />} />
         <Route path="/acts-and-rules" element={<ActsAndRules />} />
         <Route path="/excavations" element={<Excavations />} />
         <Route path="/contact-us" element={<ContactUs />} />

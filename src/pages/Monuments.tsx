@@ -33,9 +33,6 @@ export default function Monuments() {
 
   const getMonumentLocality = (m: any) => {
     const lang = i18n.language as 'en' | 'hi' | 'od';
-    if (lang === 'od') {
-      return m.metadata.en?.locality || '';
-    }
     return m.metadata[lang]?.locality || m.metadata.en?.locality || '';
   };
 
@@ -120,24 +117,37 @@ export default function Monuments() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="py-12 px-4 sm:px-6 lg:px-8 bg-transparent min-h-screen"
+      className="w-full min-h-screen bg-transparent text-[#E6D8B8] relative overflow-hidden pb-20"
     >
       <SEO title={t('nav.monuments') || 'Monuments'} />
-      <div className="max-w-7xl mx-auto space-y-12">
+
+      {/* Background Glows for depth */}
+      <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-orange-600/10 blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-amber-500/15 blur-[120px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 relative z-10 space-y-12">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4">
-          <h1 className="font-sans text-3xl sm:text-4xl md:text-5xl font-extrabold text-[var(--color-dark-stone)] tracking-tight">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center max-w-3xl mx-auto mb-16 space-y-4"
+        >
+          <div className="inline-block p-3 rounded-full bg-[var(--color-glass-surface)] border border-[var(--color-glass-border)] shadow-sm mb-2">
+            <Landmark className="w-8 h-8 text-[var(--color-saffron)]" />
+          </div>
+          <h1 className="font-serif text-[2.5rem] md:text-[3.5rem] font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-indigo)] via-[#A8451A] to-[var(--color-saffron)] leading-tight drop-shadow-[0_4px_12px_rgba(226,122,63,0.2)]">
             {t('monuments.title')}
           </h1>
-          <p className="font-sans text-sm sm:text-base text-slate-700">
+          <p className="font-sans text-sm sm:text-base text-[var(--color-dark-stone)] opacity-80">
             {t('monuments.subtitle')}
           </p>
-          <div className="w-20 h-1 bg-gradient-to-r from-[var(--color-primary)] to-orange-600 mx-auto rounded-full" />
-        </div>
+          <div className="w-20 h-1 bg-gradient-to-r from-[var(--color-indigo)] to-[var(--color-saffron)] mx-auto rounded-full" />
+        </motion.div>
 
         {/* Filters and Search */}
-        <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-[0_4px_20px_rgb(0,0,0,0.05)] border border-slate-200 flex flex-col md:flex-row gap-4 justify-between items-center z-10 relative">
+        <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-[0_4px_20px_rgb(0,0,0,0.05)] border border-slate-200 flex flex-col md:flex-row gap-4 justify-between items-center z-50 relative">
           <div className="relative w-full md:max-w-md" ref={wrapperRef}>
             <span className="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400">
               <Search className="w-5 h-5" />
@@ -187,15 +197,7 @@ export default function Monuments() {
               ))}
             </select>
 
-            <select
-              className="w-full sm:w-auto bg-[var(--color-neutral)] border border-slate-200 rounded-xl py-2.5 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] text-[var(--color-dark-stone)] shadow-sm font-semibold transition-all"
-              value={i18n.language}
-              onChange={(e) => i18n.changeLanguage(e.target.value)}
-            >
-              <option value="en">English</option>
-              <option value="hi">हिंदी (Hindi)</option>
-              <option value="od">ଓଡ଼ିଆ (Odia)</option>
-            </select>
+
 
             <button
               className="w-full sm:w-auto flex items-center justify-center gap-2 border border-slate-200 hover:bg-[var(--color-neutral)] hover:border-[var(--color-muted-gold)] rounded-full py-2.5 px-4 text-sm font-bold text-slate-700 hover:text-[var(--color-primary)] transition-all shadow-sm"

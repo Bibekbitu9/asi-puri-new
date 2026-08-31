@@ -13,7 +13,8 @@ import {
   X, 
   ChevronLeft, 
   ChevronRight, 
-  Image as ImageIcon 
+  Image as ImageIcon,
+  ExternalLink
 } from 'lucide-react';
 import { Image } from '@unpic/react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -61,10 +62,9 @@ export default function MonumentDetail() {
   const lang = i18n.language as 'en' | 'hi' | 'od';
   const name = monument.names[lang] || monument.names.en;
 
-  // Metadata translation fallback logic
-  const meta = monument.metadata[lang === 'od' ? 'en' : lang] || monument.metadata.en;
-  const description = monument.descriptions[lang === 'od' ? 'en' : lang] || monument.descriptions.en;
-  const isOdiaFallback = lang === 'od';
+  // Metadata translation logic
+  const meta = monument.metadata[lang] || monument.metadata.en;
+  const description = monument.descriptions[lang] || monument.descriptions.en;
 
   const paragraphs = description ? description.split('\n\n') : [];
   const hasLongDescription = paragraphs.length > 2;
@@ -104,20 +104,7 @@ export default function MonumentDetail() {
           >
             <ArrowLeft className="w-5 h-5" />
           </Link>
-          <div className="flex gap-4 items-center">
-            <select
-              className="bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full text-white text-xs font-bold uppercase cursor-pointer focus:outline-none"
-              value={i18n.language}
-              onChange={(e) => i18n.changeLanguage(e.target.value)}
-            >
-              <option value="en" className="text-black">English</option>
-              <option value="hi" className="text-black">हिंदी (Hindi)</option>
-              <option value="od" className="text-black">ଓଡ଼ିଆ (Odia)</option>
-            </select>
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full text-white text-xs font-bold tracking-[0.1em] uppercase hidden md:block">
-              {t('hero.subtitle') || 'Puri Circle'}
-            </div>
-          </div>
+
         </div>
 
         {/* Bottom Title Content */}
@@ -182,14 +169,7 @@ export default function MonumentDetail() {
                 </h2>
               </div>
               
-              {isOdiaFallback && (
-                <div className="bg-[var(--color-sandstone)]/10 border-l-4 border-[var(--color-primary)] p-4 text-xs sm:text-sm text-[var(--color-dark-stone)] rounded-r-xl flex items-start gap-2.5 font-semibold">
-                  <AlertCircle className="w-5 h-5 text-[var(--color-primary)] flex-shrink-0 mt-0.5" />
-                  <div>
-                    ଓଡ଼ିଆରେ ବିବରଣୀ ଉପଲବ୍ଧ ନାହିଁ । ଇଂରାଜୀ ସଂସ୍କରଣ ପ୍ରଦର୍ଶିତ ହେଉଛି :
-                  </div>
-                </div>
-              )}
+
 
               <div className="font-sans text-slate-700 leading-relaxed text-justify whitespace-pre-line space-y-6 text-sm sm:text-base">
                 {paragraphs.length > 0 ? (
@@ -358,6 +338,32 @@ export default function MonumentDetail() {
                 <ChevronRight className="w-3.5 h-3.5" />
               </Link>
             </motion.div>
+
+            {/* Virtual Walkthrough Badge */}
+            {(monument.id === 23 || monument.id === 32) && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="bg-gradient-to-br from-[var(--color-primary)] to-[#8C3310] text-white rounded-3xl p-6 border border-white/20 shadow-lg relative overflow-hidden group"
+              >
+                <div className="absolute inset-0 bg-white/5 group-hover:bg-transparent transition-colors duration-500" />
+                <h4 className="font-serif text-lg font-bold text-white mb-2 relative z-10 flex items-center gap-2">
+                  <Compass className="w-5 h-5" /> 360° Virtual Tour
+                </h4>
+                <p className="text-xs text-amber-100/90 leading-relaxed relative z-10 mb-4">
+                  Experience a complete 360-degree virtual walkthrough of this majestic monument.
+                </p>
+                <a 
+                  href={monument.id === 23 ? 'https://asi-tour.in/lalitgiri/' : 'https://asi-tour.in/ratnagiri/'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-[10px] font-extrabold tracking-widest bg-white/20 hover:bg-white/30 backdrop-blur-sm px-4 py-2 rounded-full text-white uppercase transition-colors relative z-10"
+                >
+                  <span>Start Walkthrough</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              </motion.div>
+            )}
           </div>
 
         </div>

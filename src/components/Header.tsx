@@ -19,6 +19,12 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (!location.pathname.startsWith('/monuments') && i18n.language !== 'en') {
+      i18n.changeLanguage('en');
+    }
+  }, [location.pathname, i18n]);
+
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
     setLangMenuOpen(false);
@@ -27,6 +33,7 @@ export default function Header() {
   const navItems = [
     { key: 'about', path: '/about', label: 'About Us' },
     { key: 'monuments', path: '/monuments', label: 'Monuments' },
+    { key: 'walkthrough', path: '/walkthrough', label: 'Walkthrough' },
     { key: 'museums', path: '/circle-museums', label: 'Museums' },
     { key: 'acts_rules', path: '/acts-and-rules', label: 'Acts & Rules' },
     { key: 'excavations', path: '/excavations', label: 'Excavations' },
@@ -94,16 +101,18 @@ export default function Header() {
           <div className="bg-[#1e100a]/95 backdrop-blur-2xl border-t border-white/10 px-4 py-6 shadow-inner overflow-y-auto max-h-[85vh] flex flex-col gap-2">
             
             {/* Mobile Language Panel */}
-            <div className="flex flex-col gap-4 mb-4 p-4 bg-white/5 rounded-2xl border border-white/5">
-              <div className="flex justify-between items-center">
-                <span className="text-white/40 text-[10px] font-bold uppercase tracking-widest">Language</span>
-                <div className="flex gap-2">
-                  <button onClick={() => changeLanguage('en')} className={`text-[10px] px-3 py-1.5 rounded-lg font-bold tracking-wider transition-colors ${i18n.language === 'en' || !i18n.language ? 'bg-[#C15C20] text-white shadow-md' : 'bg-black/30 text-white/50 hover:bg-white/10'}`}>EN</button>
-                  <button onClick={() => changeLanguage('hi')} className={`text-[10px] px-3 py-1.5 rounded-lg font-bold tracking-wider transition-colors ${i18n.language === 'hi' ? 'bg-[#C15C20] text-white shadow-md' : 'bg-black/30 text-white/50 hover:bg-white/10'}`}>HI</button>
-                  <button onClick={() => changeLanguage('od')} className={`text-[10px] px-3 py-1.5 rounded-lg font-bold tracking-wider transition-colors ${i18n.language === 'od' ? 'bg-[#C15C20] text-white shadow-md' : 'bg-black/30 text-white/50 hover:bg-white/10'}`}>OD</button>
+            {location.pathname.startsWith('/monuments') && (
+              <div className="flex flex-col gap-4 mb-4 p-4 bg-white/5 rounded-2xl border border-white/5">
+                <div className="flex justify-between items-center">
+                  <span className="text-white/40 text-[10px] font-bold uppercase tracking-widest">Language</span>
+                  <div className="flex gap-2">
+                    <button onClick={() => changeLanguage('en')} className={`text-[10px] px-3 py-1.5 rounded-lg font-bold tracking-wider transition-colors ${i18n.language === 'en' || !i18n.language ? 'bg-[#C15C20] text-white shadow-md' : 'bg-black/30 text-white/50 hover:bg-white/10'}`}>EN</button>
+                    <button onClick={() => changeLanguage('hi')} className={`text-[10px] px-3 py-1.5 rounded-lg font-bold tracking-wider transition-colors ${i18n.language === 'hi' ? 'bg-[#C15C20] text-white shadow-md' : 'bg-black/30 text-white/50 hover:bg-white/10'}`}>HI</button>
+                    <button onClick={() => changeLanguage('od')} className={`text-[10px] px-3 py-1.5 rounded-lg font-bold tracking-wider transition-colors ${i18n.language === 'od' ? 'bg-[#C15C20] text-white shadow-md' : 'bg-black/30 text-white/50 hover:bg-white/10'}`}>OD</button>
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
 
             {/* Mobile Nav Links */}
             {navItems.map(item => {
@@ -157,25 +166,27 @@ export default function Header() {
             </Link>
 
             {/* Language Selector Desktop */}
-            <div className="flex items-center relative">
-              <button
-                className="group flex items-center gap-2 bg-black/20 hover:bg-black/40 px-5 py-2.5 rounded-full border border-white/10 hover:border-amber-500/50 transition-all duration-300 shadow-inner"
-                onClick={() => setLangMenuOpen(!langMenuOpen)}
-              >
-                <Globe className="w-4 h-4 text-[#C19A6B] group-hover:text-amber-400 transition-colors" />
-                <span className="text-xs font-bold tracking-widest text-[#E6D8B8] uppercase">{currentLangLabel()}</span>
-                <ChevronDown className={`w-3 h-3 text-white/50 transition-transform duration-300 ${langMenuOpen ? 'rotate-180 text-white' : ''}`} />
-              </button>
-              {langMenuOpen && (
-                <div className="absolute top-full right-0 mt-3 w-40 rounded-xl shadow-[0_10px_40px_rgba(0,0,0,0.8)] bg-[#2D1810]/95 backdrop-blur-xl border border-white/10 overflow-hidden origin-top-right transition-all">
-                  <div className="py-1 flex flex-col" role="menu">
-                    <button className="text-left px-5 py-3 text-xs font-bold text-white/70 hover:bg-gradient-to-r hover:from-[#C15C20] hover:to-[#8C3310] hover:text-white transition-all" onClick={() => changeLanguage('en')}>ENGLISH</button>
-                    <button className="text-left px-5 py-3 text-xs font-bold text-white/70 hover:bg-gradient-to-r hover:from-[#C15C20] hover:to-[#8C3310] hover:text-white transition-all" onClick={() => changeLanguage('hi')}>हिन्दी</button>
-                    <button className="text-left px-5 py-3 text-xs font-bold text-white/70 hover:bg-gradient-to-r hover:from-[#C15C20] hover:to-[#8C3310] hover:text-white transition-all" onClick={() => changeLanguage('od')}>ଓଡ଼ିଆ</button>
+            {location.pathname.startsWith('/monuments') && (
+              <div className="flex items-center relative">
+                <button
+                  className="group flex items-center gap-2 bg-black/20 hover:bg-black/40 px-5 py-2.5 rounded-full border border-white/10 hover:border-amber-500/50 transition-all duration-300 shadow-inner"
+                  onClick={() => setLangMenuOpen(!langMenuOpen)}
+                >
+                  <Globe className="w-4 h-4 text-[#C19A6B] group-hover:text-amber-400 transition-colors" />
+                  <span className="text-xs font-bold tracking-widest text-[#E6D8B8] uppercase">{currentLangLabel()}</span>
+                  <ChevronDown className={`w-3 h-3 text-white/50 transition-transform duration-300 ${langMenuOpen ? 'rotate-180 text-white' : ''}`} />
+                </button>
+                {langMenuOpen && (
+                  <div className="absolute top-full right-0 mt-3 w-40 rounded-xl shadow-[0_10px_40px_rgba(0,0,0,0.8)] bg-[#2D1810]/95 backdrop-blur-xl border border-white/10 overflow-hidden origin-top-right transition-all">
+                    <div className="py-1 flex flex-col" role="menu">
+                      <button className="text-left px-5 py-3 text-xs font-bold text-white/70 hover:bg-gradient-to-r hover:from-[#C15C20] hover:to-[#8C3310] hover:text-white transition-all" onClick={() => changeLanguage('en')}>ENGLISH</button>
+                      <button className="text-left px-5 py-3 text-xs font-bold text-white/70 hover:bg-gradient-to-r hover:from-[#C15C20] hover:to-[#8C3310] hover:text-white transition-all" onClick={() => changeLanguage('hi')}>हिन्दी</button>
+                      <button className="text-left px-5 py-3 text-xs font-bold text-white/70 hover:bg-gradient-to-r hover:from-[#C15C20] hover:to-[#8C3310] hover:text-white transition-all" onClick={() => changeLanguage('od')}>ଓଡ଼ିଆ</button>
+                    </div>
                   </div>
-                </div>
-              )}
-            </div>
+                )}
+              </div>
+            )}
           </div>
         </div>
       </header>
