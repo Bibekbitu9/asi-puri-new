@@ -147,7 +147,7 @@ export default function Monuments() {
         </motion.div>
 
         {/* Filters and Search */}
-        <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-[0_4px_20px_rgb(0,0,0,0.05)] border border-slate-200 flex flex-col md:flex-row gap-4 justify-between items-center z-50 relative">
+        <div className="bg-[var(--color-glass-surface)] backdrop-blur-xl rounded-[28px] p-4 sm:p-6 shadow-[0_20px_40px_rgba(74,28,10,0.05)] border border-[var(--color-glass-border)] flex flex-col md:flex-row gap-4 justify-between items-center z-50 relative">
           <div className="relative w-full md:max-w-md" ref={wrapperRef}>
             <span className="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400">
               <Search className="w-5 h-5" />
@@ -222,7 +222,7 @@ export default function Monuments() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: (index % ITEMS_PER_BATCH) * 0.05 }}
                   whileHover={{ y: -4 }}
-                  className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-[0_4px_20px_rgb(0,0,0,0.05)] hover:shadow-[0_8px_30px_rgb(226,122,63,0.15)] hover:border-[var(--color-muted-gold)] transition-all duration-300 flex flex-col group"
+                  className="bg-[var(--color-glass-surface)] backdrop-blur-xl rounded-[28px] overflow-hidden border border-[var(--color-glass-border)] shadow-[0_20px_40px_rgba(74,28,10,0.05)] hover:shadow-[0_20px_50px_rgba(196,135,59,0.15)] hover:border-[var(--color-saffron)] transition-all duration-300 flex flex-col group"
                 >
                   {/* Image */}
                   <div className="relative aspect-[4/3] overflow-hidden bg-[var(--color-neutral)]">
