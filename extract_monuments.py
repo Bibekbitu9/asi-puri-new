@@ -8,17 +8,12 @@ def extract_monuments(docx_path):
     current_id = None
     current_desc = []
     
-    # Simple regex to match "1. Name" or "1.Name" or "1. " or "୧. "
-    # Odia uses ୧, ୨, ୩ etc. or 1, 2, 3. Let's match just standard digits for now, wait, Odia numbers!
-    # Let's try matching any digit character in unicode.
     num_pattern = re.compile(r'^(\d+)\.\s*(.*)')
     
-    # Let's also check for Odia digits
     def get_num(text):
         m = num_pattern.match(text)
         if m:
             return int(m.group(1))
-        # Check odia numbers
         m_odia = re.match(r'^([୧୨୩୪୫୬୭୮୯୦]+)\.\s*(.*)', text)
         if m_odia:
             odia_to_eng = str.maketrans('୧୨୩୪୫୬୭୮୯୦', '1234567890')
@@ -38,20 +33,26 @@ def extract_monuments(docx_path):
             current_id = num
             current_desc = []
         elif current_id is not None:
-            # Skip metadata lines if they start with certain strings.
-            # I'll just skip lines that are too short (like district names)
-            if not text.startswith(('Location:', 'District:', 'Geo-Coordinate:', 'Notification:', 'Period:', 'अक्षांश', 'संख्या', 'Lati.', 'S.O.', 'Lati.', 'Long.', 'ଜିଲ୍ଲା', 'ଅବସ୍ଥିତି', 'ଅଧିସୂଚନା', 'ସମୟ')):
-                if len(text) > 30: # Only add substantial paragraphs to description
-                    current_desc.append(text)
+            # We skip the explicit metadata prefixes so they don't duplicate in the prose description
+            if not text.startswith(('Location:', 'District:', 'Geo-Coordinate:', 'Coordinates:', 'Protected Area Status:', 'Notification:', 'Period:', 'अक्षांश', 'संख्या', 'Lati.', 'S.O.', 'Lati.', 'Long.', 'ଜିଲ୍ଲା', 'ଅବସ୍ଥିତି', 'ଅଧିସୂଚନା', 'ସମୟ')):
+                if text.startswith("Description: "):
+                    text = text.replace("Description: ", "")
+                if text.startswith("विवरण: "):
+                    text = text.replace("विवरण: ", "")
+                if text.startswith("ବିବରଣୀ: "):
+                    text = text.replace("ବିବରଣୀ: ", "")
+                
+                # Append ALL text, NO cropping
+                current_desc.append(text)
                 
     if current_id and current_desc:
         monuments[current_id] = "\n".join(current_desc).strip()
         
     return monuments
 
-en_mons = extract_monuments("public/ASI-English-Website.docx")
-hi_mons = extract_monuments("public/ASI-hindi-Website.docx")
-od_mons = extract_monuments("public/ASI-odia-Website.docx")
+en_mons = extract_monuments("public/Monuments_languages/ASI_Website_ENG_050926.docx")
+hi_mons = extract_monuments("public/Monuments_languages/ASI_Website_HINDI_050926.docx")
+od_mons = extract_monuments("public/Monuments_languages/ASI_Website_ODIA_050926.docx")
 
 print(f"Extracted EN: {len(en_mons)}, HI: {len(hi_mons)}, OD: {len(od_mons)}")
 
