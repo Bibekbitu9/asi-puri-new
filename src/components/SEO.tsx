@@ -6,10 +6,11 @@ interface SEOProps {
   description?: string;
   image?: string;
   url?: string;
+  structuredData?: Record<string, any>;
 }
 
-export default function SEO({ title, description, image, url }: SEOProps) {
-  const { t } = useTranslation();
+export default function SEO({ title, description, image, url, structuredData }: SEOProps) {
+  const { t, i18n } = useTranslation();
   
   const defaultTitle = t('hero.title') || 'ASI Puri Heritage';
   const defaultDescription = t('hero.tagline') || 'Preserving the rich cultural heritage and magnificent sandstone monuments of Odisha';
@@ -22,9 +23,13 @@ export default function SEO({ title, description, image, url }: SEOProps) {
 
   return (
     <Helmet>
+      {/* Dynamic Language */}
+      <html lang={i18n.language || 'en'} />
+
       {/* Basic Metadata */}
       <title>{seoTitle}</title>
       <meta name="description" content={seoDescription} />
+      <link rel="canonical" href={seoUrl} />
 
       {/* Open Graph / Facebook */}
       <meta property="og:type" content="website" />
@@ -39,6 +44,14 @@ export default function SEO({ title, description, image, url }: SEOProps) {
       <meta property="twitter:title" content={seoTitle} />
       <meta property="twitter:description" content={seoDescription} />
       <meta property="twitter:image" content={seoImage} />
+
+      {/* Structured Data */}
+      {structuredData && (
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
+      )}
     </Helmet>
   );
 }
+

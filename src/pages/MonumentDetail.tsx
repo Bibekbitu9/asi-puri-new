@@ -71,6 +71,20 @@ export default function MonumentDetail() {
   const visibleParagraphs = isExpanded ? paragraphs : paragraphs.slice(0, 2);
   const cleanPeriod = getCleanPeriod(meta?.period || '');
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "TouristAttraction",
+    "name": name,
+    "description": paragraphs[0] || "",
+    "image": `https://asi-puri.vercel.app${monument.images[0]}`,
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": meta.locality,
+      "addressRegion": meta.district,
+      "addressCountry": "IN"
+    }
+  };
+
   return (
     <motion.div 
       initial={{ opacity: 0 }}
@@ -78,7 +92,7 @@ export default function MonumentDetail() {
       exit={{ opacity: 0 }}
       className="bg-transparent min-h-screen pb-20 flex flex-col"
     >
-      <SEO title={name} description={paragraphs[0]?.substring(0, 150) + '...'} image={monument.images[0]} />
+      <SEO title={name} description={paragraphs[0]?.substring(0, 150) + '...'} image={monument.images[0]} structuredData={structuredData} />
 
       {/* Cinematic Hero Header Section */}
       <section className="relative w-full min-h-[50vh] md:min-h-[65vh] flex flex-col justify-between overflow-hidden bg-[var(--color-dark-stone)] pb-6 gap-6 md:gap-8">
