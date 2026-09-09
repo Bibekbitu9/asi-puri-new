@@ -53,10 +53,12 @@ export default function ContactUs() {
                 <div>
                   <h3 className="font-bold text-[var(--color-indigo)]">Office Address</h3>
                   <p className="text-[var(--color-dark-stone)] opacity-80 leading-relaxed mt-1">
+                    O/o Superintending Archaeologist<br />
                     Archaeological Survey of India<br />
-                    Puri Circle Office,<br />
-                    Near Jagannath Temple, Puri<br />
-                    Odisha, India - 752001
+                    Puri Circle, Bhubaneswar<br />
+                    Puratattva Bhawan<br />
+                    3rd floor, Samantarapur<br />
+                    Bhubaneswar, Odisha-751002.
                   </p>
                 </div>
               </div>
@@ -80,7 +82,7 @@ export default function ContactUs() {
                 <div>
                   <h3 className="font-bold text-[var(--color-indigo)]">Email Address</h3>
                   <p className="text-[var(--color-dark-stone)] opacity-80 leading-relaxed mt-1">
-                    circlepuri.asi@gov.in
+                    circlepuri.asi@gmail.com
                   </p>
                 </div>
               </div>
