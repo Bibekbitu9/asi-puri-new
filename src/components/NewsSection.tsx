@@ -69,7 +69,7 @@ export default function NewsSection() {
                   {news.description}
                 </p>
                 <Link
-                  to="#"
+                  to="/circle-museums"
                   className="inline-flex items-center justify-between w-full pt-4 border-t border-[var(--color-muted-gold)]/30 text-sm font-bold text-[var(--color-primary)] uppercase tracking-widest group-hover:text-[var(--color-muted-gold)] transition-colors"
                 >
                   <span>Read Article</span>
