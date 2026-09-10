@@ -68,13 +68,7 @@ export default function LatestUpdates() {
               <p className="opacity-80 text-sm leading-relaxed mb-6 flex-grow">
                 {update.summary}
               </p>
-              <Link
-                to="#"
-                className="inline-flex items-center text-sm font-bold text-[var(--color-primary)] hover:text-[var(--color-muted-gold)] transition-colors uppercase tracking-[0.1em] group mt-auto"
-              >
-                Read More
-                <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-2" />
-              </Link>
+
             </motion.div>
           ))}
         </div>
