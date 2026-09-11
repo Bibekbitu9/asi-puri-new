@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import SEO from '../components/SEO';
-import { Building2, Calendar, LayoutDashboard, FileText, Building } from 'lucide-react';
+import { Building2, Calendar, LayoutDashboard, FileText, Building, User, Mail } from 'lucide-react';
 
 export default function CircleMuseums() {
   const containerVariants = {
@@ -35,7 +35,9 @@ export default function CircleMuseums() {
       area: '4782 Sq.m.',
       galleryArea: '1520.26 Sq. m.',
       nmma: null,
-      condition: null
+      condition: null,
+      icName: 'Dr P.P Pradhan, ASA',
+      icContact: 'asamratnagiri@gmail.com'
     },
     {
       name: 'Archaeological Museum, Lalitagiri',
@@ -50,7 +52,9 @@ export default function CircleMuseums() {
       area: '4750.91 Sq.m',
       galleryArea: '1309.82 Sq.m',
       nmma: '180',
-      condition: null
+      condition: null,
+      icName: 'Dr P.P Pradhan, ASA',
+      icContact: 'asamratnagiri@gmail.com'
     },
     {
       name: 'Archaeological Museum, Konark',
@@ -66,7 +70,9 @@ export default function CircleMuseums() {
       area: '41250.29 Sqmt. (10.193 Ac.)',
       galleryArea: '1339.45 Sqmt. (0.3756 Ac.)',
       nmma: '722',
-      condition: 'Good'
+      condition: 'Good',
+      icName: 'Dr Tikam Tenwar, ASA',
+      icContact: 'asamkonark@gmail.com'
     }
   ];
 
@@ -178,6 +184,26 @@ export default function CircleMuseums() {
                         <div>
                           <p className="text-[var(--color-dark-stone)] opacity-60 uppercase text-[10px] tracking-wider font-bold">Condition of Building</p>
                           <p className="text-[var(--color-dark-stone)] font-medium">{museum.condition}</p>
+                        </div>
+                      </div>
+                    )}
+                    
+                    {museum.icName && (
+                      <div className="flex items-start gap-3">
+                        <User className="w-5 h-5 text-[var(--color-saffron)] shrink-0 mt-0.5" />
+                        <div>
+                          <p className="text-[var(--color-dark-stone)] opacity-60 uppercase text-[10px] tracking-wider font-bold">Name of I/C</p>
+                          <p className="text-[var(--color-dark-stone)] font-medium">{museum.icName}</p>
+                        </div>
+                      </div>
+                    )}
+                    
+                    {museum.icContact && (
+                      <div className="flex items-start gap-3">
+                        <Mail className="w-5 h-5 text-[var(--color-saffron)] shrink-0 mt-0.5" />
+                        <div>
+                          <p className="text-[var(--color-dark-stone)] opacity-60 uppercase text-[10px] tracking-wider font-bold">Contact</p>
+                          <a href={`mailto:${museum.icContact}`} className="text-[var(--color-dark-stone)] font-medium hover:text-[var(--color-saffron)] transition-colors">{museum.icContact}</a>
                         </div>
                       </div>
                     )}

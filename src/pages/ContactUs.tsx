@@ -63,6 +63,8 @@ export default function ContactUs() {
 
             <h3 className="text-xl font-bold text-[var(--color-indigo)] mb-4">Office Address</h3>
             <p className="text-[var(--color-dark-stone)] opacity-80 leading-relaxed text-sm">
+              Superintending Archaeologist<br />
+              Dr. Milan Kumar Chauley<br />
               Puratattva Bhawan<br />
               3rd floor, Samantarapur<br />
               Bhubaneswar, Odisha-751002.
