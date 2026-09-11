@@ -1,9 +1,11 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import SEO from '../components/SEO';
-import { Building2, Calendar, LayoutDashboard, FileText, Building, User, Mail } from 'lucide-react';
+import { Building2, Calendar, LayoutDashboard, FileText, Building, User, Mail, Play, X } from 'lucide-react';
 
 export default function CircleMuseums() {
+  const [activeVideo, setActiveVideo] = useState<string | null>(null);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { 
@@ -140,17 +142,15 @@ export default function CircleMuseums() {
                   </div>
 
                   {museum.videoUrl && (
-                    <div className="mt-8 rounded-2xl overflow-hidden border border-[var(--color-glass-border)] shadow-[0_8px_30px_rgb(0,0,0,0.12)] aspect-video bg-black/5 relative group">
-                      <video 
-                        className="w-full h-full object-contain bg-black"
-                        controls 
-                        preload="metadata"
-                        controlsList="nodownload"
-                      >
-                        <source src={museum.videoUrl} type="video/mp4" />
-                        Your browser does not support the video tag.
-                      </video>
-                    </div>
+                    <button
+                      onClick={() => setActiveVideo(museum.videoUrl)}
+                      className="mt-6 flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-[var(--color-indigo)] to-[#A8451A] hover:to-[var(--color-saffron)] text-white rounded-full font-bold tracking-wider uppercase text-sm transition-all duration-500 shadow-[0_8px_20px_rgba(168,69,26,0.3)] hover:shadow-[0_12px_25px_rgba(226,122,63,0.4)] hover:-translate-y-1 w-fit group"
+                    >
+                      <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <Play className="w-4 h-4 fill-white text-white ml-0.5" />
+                      </div>
+                      Watch Video Tour
+                    </button>
                   )}
                 </div>
 
@@ -232,6 +232,46 @@ export default function CircleMuseums() {
           ))}
         </motion.div>
       </div>
+
+      {/* Video Modal */}
+      <AnimatePresence>
+        {activeVideo && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-12 bg-black/80 backdrop-blur-md"
+            onClick={() => setActiveVideo(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="relative w-full max-w-5xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-white/10"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setActiveVideo(null)}
+                className="absolute top-4 right-4 z-10 w-10 h-10 bg-black/50 hover:bg-red-500 text-white rounded-full flex items-center justify-center transition-colors backdrop-blur-md border border-white/20"
+              >
+                <X className="w-5 h-5" />
+              </button>
+              
+              <video 
+                className="w-full h-full object-contain"
+                controls 
+                autoPlay
+                preload="metadata"
+                controlsList="nodownload"
+                src={activeVideo}
+              >
+                Your browser does not support the video tag.
+              </video>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 }
