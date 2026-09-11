@@ -40,7 +40,7 @@ export default function CircleMuseums() {
       condition: null,
       icName: 'Dr P.P Pradhan, ASA',
       icContact: 'asamratnagiri@gmail.com',
-      videoUrl: '/videos/Ratnagiri Museum mail.mp4'
+      videoUrl: 'https://asi-tour.in/videos/Ratnagiri%20Museum%20mail.mp4'
     },
     {
       name: 'Archaeological Museum, Lalitagiri',
@@ -58,7 +58,7 @@ export default function CircleMuseums() {
       condition: null,
       icName: 'Dr P.P Pradhan, ASA',
       icContact: 'asamratnagiri@gmail.com',
-      videoUrl: '/videos/Lalitgiri Museum mail.mp4'
+      videoUrl: 'https://asi-tour.in/videos/Lalitgiri%20Museum%20mail.mp4'
     },
     {
       name: 'Archaeological Museum, Konark',
@@ -77,7 +77,7 @@ export default function CircleMuseums() {
       condition: 'Good',
       icName: 'Dr Tikam Tenwar, ASA',
       icContact: 'asamkonark@gmail.com',
-      videoUrl: '/videos/Konark Museum mail.mp4'
+      videoUrl: 'https://asi-tour.in/videos/Konark%20Museum%20mail.mp4'
     }
   ];
 
