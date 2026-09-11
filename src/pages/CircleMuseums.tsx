@@ -37,7 +37,8 @@ export default function CircleMuseums() {
       nmma: null,
       condition: null,
       icName: 'Dr P.P Pradhan, ASA',
-      icContact: 'asamratnagiri@gmail.com'
+      icContact: 'asamratnagiri@gmail.com',
+      videoUrl: '/videos/Ratnagiri Museum mail.mp4'
     },
     {
       name: 'Archaeological Museum, Lalitagiri',
@@ -54,7 +55,8 @@ export default function CircleMuseums() {
       nmma: '180',
       condition: null,
       icName: 'Dr P.P Pradhan, ASA',
-      icContact: 'asamratnagiri@gmail.com'
+      icContact: 'asamratnagiri@gmail.com',
+      videoUrl: '/videos/Lalitgiri Museum mail.mp4'
     },
     {
       name: 'Archaeological Museum, Konark',
@@ -72,7 +74,8 @@ export default function CircleMuseums() {
       nmma: '722',
       condition: 'Good',
       icName: 'Dr Tikam Tenwar, ASA',
-      icContact: 'asamkonark@gmail.com'
+      icContact: 'asamkonark@gmail.com',
+      videoUrl: '/videos/Konark Museum mail.mp4'
     }
   ];
 
@@ -135,6 +138,20 @@ export default function CircleMuseums() {
                       <p key={pIdx}>{paragraph}</p>
                     ))}
                   </div>
+
+                  {museum.videoUrl && (
+                    <div className="mt-8 rounded-2xl overflow-hidden border border-[var(--color-glass-border)] shadow-[0_8px_30px_rgb(0,0,0,0.12)] aspect-video bg-black/5 relative group">
+                      <video 
+                        className="w-full h-full object-contain bg-black"
+                        controls 
+                        preload="metadata"
+                        controlsList="nodownload"
+                      >
+                        <source src={museum.videoUrl} type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
+                  )}
                 </div>
 
                 <div className="md:w-80 bg-white/50 rounded-2xl p-6 border border-[var(--color-glass-border)] h-fit shadow-sm">
