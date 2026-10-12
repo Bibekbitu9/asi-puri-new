@@ -9,6 +9,7 @@ import HeroCarousel from '../components/HeroCarousel';
 import HomeSearchBar from '../components/HomeSearchBar';
 import LatestUpdates from '../components/LatestUpdates';
 import NewsSection from '../components/NewsSection';
+import TicketBookingBanner from '../components/TicketBookingBanner';
 import monumentsData from '../data/monuments.json';
 
 function AnimatedCounter({ from, to }: { from: number; to: number }) {
@@ -77,6 +78,9 @@ export default function Home() {
 
       {/* Global Search Bar Overlay */}
       <HomeSearchBar />
+
+      {/* Online Ticket Booking & Visitor Advisory Banner */}
+      <TicketBookingBanner />
 
       {/* Welcome Section - Divine Glassmorphism */}
       <section className="py-16 md:py-24 bg-transparent relative overflow-hidden" id="welcome-message">
@@ -155,38 +159,58 @@ export default function Home() {
       {/* News Section */}
       <NewsSection />
 
-      {/* Stats Section */}
-      <section className="py-12 md:py-20 bg-[var(--color-dark-stone)] text-[var(--color-neutral)]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center">
-              <Activity className="w-8 h-8 md:w-10 md:h-10 mx-auto text-[var(--color-primary)] mb-4 md:mb-6" />
-              <div className="font-serif text-3xl md:text-5xl mb-2 md:mb-3">
-                <AnimatedCounter from={1} to={40} />
-              </div>
-              <div className="text-xs font-bold text-[var(--color-muted-gold)] uppercase tracking-[0.15em]">{t('home.stats_monuments')}</div>
-            </motion.div>
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="text-center">
-              <BookOpen className="w-8 h-8 md:w-10 md:h-10 mx-auto text-[var(--color-primary)] mb-4 md:mb-6" />
-              <div className="font-serif text-3xl md:text-5xl mb-2 md:mb-3">
-                <AnimatedCounter from={1} to={3} />
-              </div>
-              <div className="text-xs font-bold text-[var(--color-muted-gold)] uppercase tracking-[0.15em]">{t('home.stats_museums')}</div>
-            </motion.div>
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="text-center">
-              <MapPin className="w-8 h-8 md:w-10 md:h-10 mx-auto text-[var(--color-primary)] mb-4 md:mb-6" />
-              <div className="font-serif text-3xl md:text-5xl mb-2 md:mb-3">
-                <AnimatedCounter from={1} to={15} />
-              </div>
-              <div className="text-xs font-bold text-[var(--color-muted-gold)] uppercase tracking-[0.15em]">{t('home.stats_districts')}</div>
-            </motion.div>
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }} className="text-center">
-              <Users className="w-8 h-8 md:w-10 md:h-10 mx-auto text-[var(--color-primary)] mb-4 md:mb-6" />
-              <div className="font-serif text-3xl md:text-5xl mb-2 md:mb-3">
-                <AnimatedCounter from={1} to={4} />
-              </div>
-              <div className="text-xs font-bold text-[var(--color-muted-gold)] uppercase tracking-[0.15em]">{t('home.stats_subcircles')}</div>
-            </motion.div>
+      {/* Stats Section - Divine Heritage Glassmorphism */}
+      <section className="py-12 md:py-20 bg-transparent relative overflow-hidden" id="heritage-stats" aria-label="ASI Puri Circle Statistics">
+        {/* Subtle background ambient glows */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-gradient-to-r from-amber-400/10 via-[var(--color-saffron)]/10 to-transparent rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="rounded-3xl md:rounded-[32px] bg-gradient-to-br from-white/90 via-[#FCF8F2]/85 to-[#F6EDE2]/85 backdrop-blur-2xl border border-[var(--color-glass-border)] shadow-[0_20px_50px_rgba(74,28,10,0.06)] p-8 sm:p-10 lg:p-12">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center group flex flex-col items-center">
+                <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-amber-500/15 to-[#C15C20]/15 border border-[#C19A6B]/30 flex items-center justify-center text-[#C15C20] mb-4 shadow-xs group-hover:scale-110 group-hover:bg-[#C15C20]/20 transition-all duration-300">
+                  <Activity className="w-7 h-7 md:w-8 md:h-8" />
+                </div>
+                <div className="font-serif text-3xl sm:text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-indigo)] via-[#A8451A] to-[var(--color-saffron)] mb-1.5 md:mb-2">
+                  <AnimatedCounter from={1} to={40} />
+                </div>
+                <div className="text-xs sm:text-sm font-bold text-[#2D1810] uppercase tracking-[0.16em]">{t('home.stats_monuments')}</div>
+                <span className="text-[11px] text-[#8C3310]/80 font-medium tracking-wide mt-1">Centrally Protected</span>
+              </motion.div>
+
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="text-center group flex flex-col items-center">
+                <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-amber-500/15 to-[#C15C20]/15 border border-[#C19A6B]/30 flex items-center justify-center text-[#C15C20] mb-4 shadow-xs group-hover:scale-110 group-hover:bg-[#C15C20]/20 transition-all duration-300">
+                  <BookOpen className="w-7 h-7 md:w-8 md:h-8" />
+                </div>
+                <div className="font-serif text-3xl sm:text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-indigo)] via-[#A8451A] to-[var(--color-saffron)] mb-1.5 md:mb-2">
+                  <AnimatedCounter from={1} to={3} />
+                </div>
+                <div className="text-xs sm:text-sm font-bold text-[#2D1810] uppercase tracking-[0.16em]">{t('home.stats_museums')}</div>
+                <span className="text-[11px] text-[#8C3310]/80 font-medium tracking-wide mt-1">Archaeological Museums</span>
+              </motion.div>
+
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="text-center group flex flex-col items-center">
+                <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-amber-500/15 to-[#C15C20]/15 border border-[#C19A6B]/30 flex items-center justify-center text-[#C15C20] mb-4 shadow-xs group-hover:scale-110 group-hover:bg-[#C15C20]/20 transition-all duration-300">
+                  <MapPin className="w-7 h-7 md:w-8 md:h-8" />
+                </div>
+                <div className="font-serif text-3xl sm:text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-indigo)] via-[#A8451A] to-[var(--color-saffron)] mb-1.5 md:mb-2">
+                  <AnimatedCounter from={1} to={15} />
+                </div>
+                <div className="text-xs sm:text-sm font-bold text-[#2D1810] uppercase tracking-[0.16em]">{t('home.stats_districts')}</div>
+                <span className="text-[11px] text-[#8C3310]/80 font-medium tracking-wide mt-1">Odisha Jurisdiction</span>
+              </motion.div>
+
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }} className="text-center group flex flex-col items-center">
+                <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-amber-500/15 to-[#C15C20]/15 border border-[#C19A6B]/30 flex items-center justify-center text-[#C15C20] mb-4 shadow-xs group-hover:scale-110 group-hover:bg-[#C15C20]/20 transition-all duration-300">
+                  <Users className="w-7 h-7 md:w-8 md:h-8" />
+                </div>
+                <div className="font-serif text-3xl sm:text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-indigo)] via-[#A8451A] to-[var(--color-saffron)] mb-1.5 md:mb-2">
+                  <AnimatedCounter from={1} to={4} />
+                </div>
+                <div className="text-xs sm:text-sm font-bold text-[#2D1810] uppercase tracking-[0.16em]">{t('home.stats_subcircles')}</div>
+                <span className="text-[11px] text-[#8C3310]/80 font-medium tracking-wide mt-1">Sub-Circle Divisions</span>
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
