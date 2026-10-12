@@ -35,7 +35,9 @@ export default function Header() {
     { key: 'monuments', path: '/monuments', label: 'Monuments' },
     { key: 'walkthrough', path: '/walkthrough', label: 'Walkthrough' },
     { key: 'museums', path: '/circle-museums', label: 'Museums' },
+    { key: 'tickets', path: '/tickets', label: 'Tickets' },
     { key: 'acts_rules', path: '/acts-and-rules', label: 'Acts & Rules' },
+    { key: 'forms', path: '/forms', label: 'Forms' },
     { key: 'excavations', path: '/excavations', label: 'Excavations' },
     { key: 'contact', path: '/contact-us', label: 'Contact Us' }
   ];
@@ -194,31 +196,23 @@ export default function Header() {
       {/* ==================================================== */}
       {/* DESKTOP TIER 2: Sub-Header Navigation (Sticky) */}
       {/* ==================================================== */}
-      <div className={`hidden lg:block sticky top-0 z-50 w-full transition-all duration-300 ${scrolled ? 'bg-gradient-to-r from-[#2D1810]/95 via-[#4A2818]/95 to-[#5C321E]/95 backdrop-blur-2xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] border-b border-[#C19A6B]/30' : 'bg-gradient-to-r from-[#150a06]/90 via-[#2a140d]/90 to-[#1a0c07]/90 backdrop-blur-sm border-y border-white/5 shadow-inner'}`}>
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <nav className="flex flex-wrap justify-center items-center min-h-[2.5rem] py-2 gap-x-8 xl:gap-x-12 gap-y-3">
+      <div className={`hidden lg:block sticky top-0 z-50 w-full transition-all duration-300 ${scrolled ? 'bg-[#221008]/95 backdrop-blur-2xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] border-b border-[#C19A6B]/30' : 'bg-[#1C0D07]/95 backdrop-blur-xl border-y border-[#C19A6B]/20 shadow-md'}`}>
+        <div className="max-w-7xl mx-auto px-4 lg:px-6">
+          <nav className="flex items-center justify-center py-2 px-1 gap-1 xl:gap-2 overflow-x-auto no-scrollbar">
             {navItems.map(item => {
               const isActive = location.pathname === item.path;
               return (
                 <Link
                   key={item.key}
                   onClick={(e) => handleNavClick(e, item.path)}
-                  className={`group relative font-sans text-xs font-bold uppercase tracking-[0.2em] flex items-center justify-center text-center py-1 transition-all duration-300 ${
+                  className={`group relative px-3 xl:px-4 py-1.5 rounded-full text-[11px] xl:text-xs font-bold tracking-wider uppercase transition-all duration-300 whitespace-nowrap flex items-center gap-1.5 ${
                     isActive
-                      ? 'text-amber-400'
-                      : 'text-[#E6D8B8]/80 hover:text-amber-300'
+                      ? 'bg-gradient-to-r from-[#D96B27] via-[#B85018] to-[#8C3310] text-white shadow-md shadow-orange-950/50 border border-amber-300/40 ring-1 ring-amber-400/20'
+                      : 'text-[#E6D8B8]/85 hover:text-white hover:bg-white/10 hover:shadow-xs'
                   }`}
                   to={item.path}
                 >
                   <span>{item.label}</span>
-                  {/* Active Underline */}
-                  {isActive && (
-                    <span className="absolute bottom-0 left-0 w-full h-[3px] bg-gradient-to-r from-amber-400 to-orange-500 rounded-t-full shadow-[0_-2px_10px_rgba(251,191,36,0.5)]"></span>
-                  )}
-                  {/* Hover Underline */}
-                  {!isActive && (
-                    <span className="absolute bottom-0 left-1/2 w-0 h-[3px] bg-white/30 transition-all duration-300 group-hover:w-full group-hover:left-0 rounded-t-full"></span>
-                  )}
                 </Link>
               );
             })}

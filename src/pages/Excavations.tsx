@@ -8,17 +8,17 @@ export default function Excavations() {
     {
       title: "Parabhadi Excavation Report",
       description: "Detailed findings from the recent archaeological excavations at Parabhadi.",
-      href: "/For_ASI_Website/Excavation/Parabhadi excavation report - Final-1.pdf"
+      href: "/excavations/parabhadi-excavation-report-final.pdf"
     },
     {
       title: "Report on Excavation at Barabati Fort",
       description: "Comprehensive study of the ancient monuments and ruins at Barabati Fortress.",
-      href: "/For_ASI_Website/Excavation/Report on Excavation at Barabati Fort.pdf"
+      href: "/excavations/report-on-excavation-at-barabati-fort.pdf"
     },
     {
       title: "Report on Excavation at Ratnagiri (2024-25)",
       description: "Latest insights into the prosperous Mahayana-Vajrayana Buddhist center at Ratnagiri.",
-      href: "/For_ASI_Website/Excavation/Report on Excavation at Ratnagiri 2024- 25 (Print).pdf"
+      href: "/excavations/report-on-excavation-at-ratnagiri-2024-25.pdf"
     }
   ];
 

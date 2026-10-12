@@ -50,9 +50,9 @@ def extract_monuments(docx_path):
         
     return monuments
 
-en_mons = extract_monuments("public/Monuments_languages/ASI_Website_ENG_050926.docx")
-hi_mons = extract_monuments("public/Monuments_languages/ASI_Website_HINDI_050926.docx")
-od_mons = extract_monuments("public/Monuments_languages/ASI_Website_ODIA_050926.docx")
+en_mons = extract_monuments("docs_source/Monuments_languages/ASI_Website_ENG_050926.docx")
+hi_mons = extract_monuments("docs_source/Monuments_languages/ASI_Website_HINDI_050926.docx")
+od_mons = extract_monuments("docs_source/Monuments_languages/ASI_Website_ODIA_050926.docx")
 
 print(f"Extracted EN: {len(en_mons)}, HI: {len(hi_mons)}, OD: {len(od_mons)}")
 

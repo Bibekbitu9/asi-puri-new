@@ -5,14 +5,16 @@ import { FileText } from 'lucide-react';
 
 export default function ActsAndRules() {
   const documents = [
-    { title: "Ancient Monuments and Archaeological Sites and Remains Act 1958", href: "/For_ASI_Website/Act/1958 Act.pdf" },
-    { title: "Antiquities and Art Treasure Act 1972", href: "/For_ASI_Website/Act/AAT Act 1972.pdf" },
-    { title: "AMASR Act 2010 Gazette Notification", href: "/For_ASI_Website/Act/AMASR_Act2010_Gazette_Notification_new.pdf" },
-    { title: "Ancient Monuments Preservation Act 1904", href: "/For_ASI_Website/Act/AMP Act, 1904.pdf" },
-    { title: "Ancient Monuments Rule 1904", href: "/For_ASI_Website/Act/Ancient Monuments Rule 1904.pdf" },
-    { title: "Antiquities and Art Treasure Act 1972 (Hindi)", href: "/For_ASI_Website/Act/Antiquities and Art Treasure Act-1972, Hindi.pdf" },
-    { title: "Antiquities and Art Treasure Rules 1973", href: "/For_ASI_Website/Act/Antiquities and Art Treasure Rules 1973.pdf" },
-    { title: "Act Rules 1959", href: "/For_ASI_Website/Act/actRules1959.pdf" }
+    { title: "Ancient Monuments and Archaeological Sites and Remains Act 1958", href: "/act-and-rules/amasr-act-1958.pdf" },
+    { title: "Antiquities and Art Treasure Act 1972", href: "/act-and-rules/aat-act-1972.pdf" },
+    { title: "AMASR Act 2010 Gazette Notification", href: "/act-and-rules/amasr-act-2010-gazette-notification.pdf" },
+    { title: "Ancient Monuments Preservation Act 1904", href: "/act-and-rules/amp-act-1904.pdf" },
+    { title: "Ancient Monuments Rule 1904", href: "/act-and-rules/ancient-monuments-rules-1904.pdf" },
+    { title: "Antiquities and Art Treasure Act 1972 (Hindi)", href: "/act-and-rules/aat-act-1972-hindi.pdf" },
+    { title: "Antiquities and Art Treasure Rules 1973", href: "/act-and-rules/aat-rules-1973.pdf" },
+    { title: "Act Rules 1959", href: "/act-and-rules/amasr-rules-1959.pdf" },
+    { title: "National Monuments Authority Rules 2011 and subsequent Amendments", href: "/act-and-rules/nma-rules-2011-amendments.pdf" },
+    { title: "Guidelines for Holding Cultural Events at Protected Monuments", href: "/act-and-rules/guidelines-cultural-events-protected-monuments.pdf" }
   ];
 
   const containerVariants = {

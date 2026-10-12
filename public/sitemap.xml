@@ -26,7 +26,17 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://asi-puri.vercel.app/tickets</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://asi-puri.vercel.app/acts-and-rules</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://asi-puri.vercel.app/forms</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

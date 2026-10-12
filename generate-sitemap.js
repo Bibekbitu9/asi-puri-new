@@ -14,7 +14,9 @@ const staticRoutes = [
   '/about',
   '/circle-museums',
   '/walkthrough',
+  '/tickets',
   '/acts-and-rules',
+  '/forms',
   '/excavations',
   '/contact-us'
 ];

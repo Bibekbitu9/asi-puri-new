@@ -1,14 +1,53 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import SEO from '../components/SEO';
-import { Building2, Compass, MapPin, Map, Building } from 'lucide-react';
+import { Building2, Compass, MapPin, Map, Building, Users } from 'lucide-react';
 
 export default function AboutUs() {
+  const officials = [
+    {
+      name: "Dr. Milan Kumar Chauley",
+      designation: "Superintending Archaeologist",
+      role: "Head of Circle",
+      photo: "/images/representatives/dr-milan-kumar-chauley.jpg"
+    },
+    {
+      name: "Sh. Chittaranjan Dash",
+      designation: "Deputy Superintending Archaeological Engineer",
+      role: "Engineering Wing",
+      photo: "/images/representatives/sh-chittaranjan-dash.jpg"
+    },
+    {
+      name: "Dr. P. P. Pradhan",
+      designation: "Assistant Superintending Archaeologist",
+      role: "Archaeological Wing",
+      photo: "/images/representatives/dr-pp-pradhan.jpg"
+    },
+    {
+      name: "Dr. Tikam Tenwar",
+      designation: "Assistant Superintending Archaeologist",
+      role: "Archaeological Wing",
+      photo: "/images/representatives/dr-tikam-tenwar.jpg"
+    },
+    {
+      name: "Sh. Sudipta Sen",
+      designation: "Assistant Superintending Archaeological Engineer",
+      role: "Engineering Wing",
+      photo: "/images/representatives/sh-sudipta-sen.jpg"
+    },
+    {
+      name: "Sh. P.K. Prusty",
+      designation: "Junior Administrative Officer",
+      role: "Administrative Wing",
+      photo: "/images/representatives/sh-pk-prusty.jpg"
+    }
+  ];
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.2 }
+      transition: { staggerChildren: 0.15 }
     }
   };
 
@@ -34,7 +73,7 @@ export default function AboutUs() {
       <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-orange-600/10 blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-amber-500/15 blur-[120px] pointer-events-none" />
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 relative z-10">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 relative z-10">
 
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -58,8 +97,64 @@ export default function AboutUs() {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="space-y-8 md:space-y-12"
+          className="space-y-12 md:space-y-16"
         >
+          {/* Who's Who / Key Officials & Administrative Leadership */}
+          <motion.div variants={itemVariants} className="space-y-8">
+            <div className="border-b border-[var(--color-glass-border)] pb-5">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-saffron)]/10 text-[var(--color-saffron)] text-[11px] font-bold uppercase tracking-widest border border-[var(--color-saffron)]/20 mb-3 shadow-xs">
+                <Users className="w-3.5 h-3.5" />
+                <span>Administrative Leadership</span>
+              </div>
+              <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--color-indigo)] tracking-tight leading-tight">
+                Key Officials &amp; Administrative Leadership of ASI Puri Circle
+              </h2>
+              <p className="text-sm sm:text-base text-[var(--color-dark-stone)] opacity-85 mt-2 max-w-3xl font-medium leading-relaxed">
+                Superintending Archaeologist and executive officers steering the heritage conservation, engineering works, and administrative governance of ASI Puri Circle.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
+              {officials.map((official, idx) => (
+                <div
+                  key={idx}
+                  className="group relative bg-[var(--color-glass-surface)] backdrop-blur-xl border border-[var(--color-glass-border)] rounded-3xl p-6 sm:p-7 flex flex-col items-center text-center shadow-xs hover:shadow-xl hover:border-[var(--color-saffron)] transition-all duration-300 hover:-translate-y-1.5 overflow-hidden"
+                >
+                  {/* Subtle Corner Glow */}
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-[var(--color-saffron)]/10 rounded-bl-full pointer-events-none group-hover:scale-125 transition-transform duration-500" />
+
+                  {/* Circular Headshot Frame */}
+                  <div className="relative mb-4 p-1 rounded-full bg-gradient-to-b from-[var(--color-saffron)]/30 via-amber-200/20 to-transparent shadow-sm">
+                    <img
+                      src={official.photo}
+                      alt={`Headshot of ${official.name}, ${official.designation}`}
+                      loading="lazy"
+                      className="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover object-top border-4 border-white shadow-md group-hover:scale-105 transition-transform duration-300 bg-amber-50"
+                    />
+                    <div className="absolute inset-0 rounded-full border border-[var(--color-saffron)]/20 pointer-events-none" />
+                  </div>
+
+                  {/* Role Wing Tag */}
+                  <span className="inline-block text-[10px] font-bold uppercase tracking-wider text-[var(--color-dark-stone)] opacity-70 bg-stone-100/90 px-2.5 py-0.5 rounded-full border border-stone-200/60 mb-2">
+                    {official.role}
+                  </span>
+
+                  {/* Name */}
+                  <h3 className="font-serif text-lg sm:text-xl font-bold text-[var(--color-indigo)] mb-2 group-hover:text-[var(--color-saffron)] transition-colors leading-snug">
+                    {official.name}
+                  </h3>
+
+                  {/* Designation */}
+                  <div className="mt-auto pt-2">
+                    <span className="inline-block text-xs sm:text-sm font-semibold text-[#8C3310] bg-[#8C3310]/10 px-3.5 py-1 rounded-full border border-[#8C3310]/20 leading-relaxed">
+                      {official.designation}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
           {/* About Puri Circle */}
           <motion.div variants={itemVariants} className="relative group perspective-1000">
             <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-saffron)] to-transparent rounded-[28px] blur-md opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
