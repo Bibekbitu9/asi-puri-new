@@ -9,37 +9,37 @@ export default function AboutUs() {
       name: "Dr. Milan Kumar Chauley",
       designation: "Superintending Archaeologist",
       role: "Head of Circle",
-      photo: "/images/representatives/dr-milan-kumar-chauley.jpg"
+      photo: "/about-us/Photos/Dr. Milan Kumar Chauley.png"
     },
     {
       name: "Sh. Chittaranjan Dash",
       designation: "Deputy Superintending Archaeological Engineer",
       role: "Engineering Wing",
-      photo: "/images/representatives/sh-chittaranjan-dash.jpg"
+      photo: "/about-us/Photos/Sh. Chittaranjan Dash.png"
     },
     {
       name: "Dr. P. P. Pradhan",
       designation: "Assistant Superintending Archaeologist",
       role: "Archaeological Wing",
-      photo: "/images/representatives/dr-pp-pradhan.jpg"
+      photo: "/about-us/Photos/Dr. P. P. Pradhan.png"
     },
     {
       name: "Dr. Tikam Tenwar",
       designation: "Assistant Superintending Archaeologist",
       role: "Archaeological Wing",
-      photo: "/images/representatives/dr-tikam-tenwar.jpg"
+      photo: "/about-us/Photos/Dr. Tikam Tenwar.png"
     },
     {
       name: "Sh. Sudipta Sen",
       designation: "Assistant Superintending Archaeological Engineer",
       role: "Engineering Wing",
-      photo: "/images/representatives/sh-sudipta-sen.jpg"
+      photo: "/about-us/Photos/Sh. Sudipta Sen.png"
     },
     {
       name: "Sh. P.K. Prusty",
       designation: "Junior Administrative Officer",
       role: "Administrative Wing",
-      photo: "/images/representatives/sh-pk-prusty.jpg"
+      photo: "/about-us/Photos/Sh. P.K. Prusty.png"
     }
   ];
 
