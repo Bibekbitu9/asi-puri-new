@@ -123,15 +123,16 @@ export default function AboutUs() {
                   {/* Subtle Corner Glow */}
                   <div className="absolute top-0 right-0 w-24 h-24 bg-[var(--color-saffron)]/10 rounded-bl-full pointer-events-none group-hover:scale-125 transition-transform duration-500" />
 
-                  {/* Circular Headshot Frame */}
-                  <div className="relative mb-4 p-1 rounded-full bg-gradient-to-b from-[var(--color-saffron)]/30 via-amber-200/20 to-transparent shadow-sm">
-                    <img
-                      src={official.photo}
-                      alt={`Headshot of ${official.name}, ${official.designation}`}
-                      loading="lazy"
-                      className="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover object-top border-4 border-white shadow-md group-hover:scale-105 transition-transform duration-300 bg-amber-50"
-                    />
-                    <div className="absolute inset-0 rounded-full border border-[var(--color-saffron)]/20 pointer-events-none" />
+                  {/* Circular Headshot Frame - Pure White Background */}
+                  <div className="relative mb-4 p-1.5 rounded-full bg-white shadow-md border border-[#C19A6B]/25 group-hover:border-[var(--color-saffron)]/50 transition-colors duration-300">
+                    <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden bg-white ring-2 ring-white">
+                      <img
+                        src={official.photo}
+                        alt={`Headshot of ${official.name}, ${official.designation}`}
+                        loading="lazy"
+                        className="w-full h-full rounded-full object-cover object-top group-hover:scale-108 transition-transform duration-300 bg-white"
+                      />
+                    </div>
                   </div>
 
                   {/* Role Wing Tag */}
