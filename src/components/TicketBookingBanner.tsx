@@ -7,6 +7,7 @@ import { Image } from '@unpic/react';
 const ticketedMonuments = [
   {
     id: 1,
+    slug: "sun-temple-konark",
     name: "Sun Temple, Konark",
     type: "World Heritage Site",
     location: "Konark, Puri",
@@ -17,6 +18,7 @@ const ticketedMonuments = [
   },
   {
     id: 2,
+    slug: "archaeological-museum-konark",
     name: "Archaeological Museum, Konark",
     type: "Site Museum",
     location: "Konark, Puri",
@@ -27,6 +29,7 @@ const ticketedMonuments = [
   },
   {
     id: 3,
+    slug: "buddhist-site-ratnagiri",
     name: "Buddhist Site, Ratnagiri",
     type: "Excavated Mahavihara",
     location: "Ratnagiri, Jajpur",
@@ -37,6 +40,7 @@ const ticketedMonuments = [
   },
   {
     id: 4,
+    slug: "archaeological-museum-ratnagiri",
     name: "Archaeological Museum, Ratnagiri",
     type: "Site Museum",
     location: "Ratnagiri, Jajpur",
@@ -47,6 +51,7 @@ const ticketedMonuments = [
   },
   {
     id: 5,
+    slug: "buddhist-site-lalitagiri",
     name: "Buddhist Site, Lalitagiri",
     type: "Excavated Stupa Complex",
     location: "Lalitagiri, Cuttack",
@@ -169,9 +174,9 @@ export default function TicketBookingBanner() {
               {ticketedMonuments.map((item) => (
                 <Link
                   key={item.id}
-                  to="/tickets"
+                  to={`/tickets#${item.slug}`}
                   className="group relative flex sm:flex-col items-center sm:items-start gap-3 p-2.5 rounded-2xl bg-white/90 hover:bg-white border border-[#C19A6B]/25 hover:border-[#C15C20]/40 shadow-xs hover:shadow-md transition-all duration-300 overflow-hidden focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none"
-                  aria-label={`View ticket fees for ${item.name}`}
+                  aria-label={`View ticket fees and QR code for ${item.name}`}
                 >
                   {/* Thumbnail Image */}
                   <div className="relative w-16 h-16 sm:w-full sm:h-24 rounded-xl overflow-hidden shrink-0 bg-stone-100 border border-stone-200">
@@ -185,9 +190,14 @@ export default function TicketBookingBanner() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent sm:block hidden" />
                     
                     {/* Small Discount Pill on Image (Desktop) */}
-                    {item.hasDiscount && (
+                    {item.hasDiscount ? (
                       <span className="hidden sm:inline-block absolute top-1.5 right-1.5 px-1.5 py-0.5 rounded-md bg-emerald-600/95 text-[9px] font-bold text-white uppercase tracking-wider shadow-sm">
                         ₹5 Off Online
+                      </span>
+                    ) : (
+                      <span className="hidden sm:inline-flex items-center gap-1 absolute top-1.5 right-1.5 px-1.5 py-0.5 rounded-md bg-[#2D1810]/80 backdrop-blur-xs text-[9px] font-bold text-amber-200 uppercase tracking-wider shadow-sm">
+                        <QrCode className="w-2.5 h-2.5 text-amber-300" />
+                        QR Entry
                       </span>
                     )}
                   </div>
