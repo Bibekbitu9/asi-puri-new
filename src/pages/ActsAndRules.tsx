@@ -35,108 +35,20 @@ interface DocumentItem {
 export default function ActsAndRules() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<'All' | 'Act' | 'Rule' | 'Policy'>('All');
-  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
+  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
 
-  // Documents arranged year-wise (chronological order)
+  // Documents arranged year-wise (Newest first by default)
   const documents: DocumentItem[] = [
     {
-      id: "amp-act-1904",
-      title: "Ancient Monuments Preservation Act 1904",
-      subtitle: "Historic preservation legislation for the protection of monuments, excavation sites, and regulation of antiquities traffic.",
-      href: "/act-and-rules/amp-act-1904.pdf",
-      fallbackHref: "/act-and-rules/amp-act-1904.pdf",
-      category: "Act",
-      year: "1904",
-      yearValue: 1904,
-      size: "606 KB"
-    },
-    {
-      id: "ancient-monuments-rules-1904",
-      title: "Ancient Monuments Rule 1904",
-      subtitle: "Early statutory administrative rules formulated under the Ancient Monuments Preservation Act of 1904.",
-      href: "/act-and-rules/ancient-monuments-rules-1904.pdf",
-      fallbackHref: "/act-and-rules/ancient-monuments-rules-1904.pdf",
-      category: "Rule",
-      year: "1904",
-      yearValue: 1904,
-      size: "147 KB"
-    },
-    {
-      id: "amasr-act-1958",
-      title: "Ancient Monuments and Archaeological Sites and Remains Act 1958",
-      subtitle: "Principal statutory act providing preservation of ancient and historical monuments, archaeological sites, and remains of national importance.",
-      href: "/act-and-rules/amasr-act-1958.pdf",
-      fallbackHref: "/act-and-rules/amasr-act-1958.pdf",
-      category: "Act",
-      year: "1958",
-      yearValue: 1958,
-      size: "388 KB"
-    },
-    {
-      id: "amasr-rules-1959",
-      title: "Act Rules 1959 (AMASR Rules)",
-      subtitle: "Detailed operational and procedural regulations established pursuant to the AMASR Act 1958.",
-      href: "/act-and-rules/amasr-rules-1959.pdf",
-      fallbackHref: "/act-and-rules/amasr-rules-1959.pdf",
-      category: "Rule",
-      year: "1959",
-      yearValue: 1959,
-      size: "111 KB"
-    },
-    {
-      id: "aat-act-1972",
-      title: "Antiquities and Art Treasure Act 1972",
-      subtitle: "Act to regulate export trade in antiquities and art treasures and prevent smuggling of, and fraudulent dealings in antiquities.",
-      href: "/act-and-rules/aat-act-1972.pdf",
-      fallbackHref: "/act-and-rules/aat-act-1972.pdf",
-      category: "Act",
-      year: "1972",
-      yearValue: 1972,
-      size: "328 KB"
-    },
-    {
-      id: "aat-rules-1973",
-      title: "Antiquities and Art Treasure Rules 1973",
-      subtitle: "Administrative, licensing, and recordkeeping statutory rules enacted under the Antiquities and Art Treasure Act 1972.",
-      href: "/act-and-rules/aat-rules-1973.pdf",
-      fallbackHref: "/act-and-rules/aat-rules-1973.pdf",
-      category: "Rule",
-      year: "1973",
-      yearValue: 1973,
-      size: "266 KB"
-    },
-    {
-      id: "amasr-act-2010",
-      title: "AMASR Act 2010 Gazette Notification",
-      subtitle: "Official Gazette Notification enacting statutory amendments to the AMASR Act defining prohibited and regulated heritage zones.",
-      href: "/act-and-rules/amasr-act-2010-gazette-notification.pdf",
-      fallbackHref: "/act-and-rules/amasr-act-2010-gazette-notification.pdf",
-      category: "Rule",
-      year: "2010",
-      yearValue: 2010,
-      size: "588 KB"
-    },
-    {
-      id: "nma-rules-2011",
-      title: "National Monuments Authority Rules 2011 and Amendments",
-      subtitle: "Statutory rules and subsequent regulatory amendments establishing procedures and powers of the National Monuments Authority.",
-      href: "/act-and-rules/nma-rules-2011-amendments.pdf",
-      fallbackHref: "/act-and-rules/nma-rules-2011-amendments.pdf",
-      category: "Rule",
-      year: "2011",
-      yearValue: 2011,
-      size: "5.1 MB"
-    },
-    {
-      id: "guide-policy-2014",
-      title: "Guide Policy 2014",
-      subtitle: "Comprehensive policy guidelines for engagement, licensing, authorization, and code of conduct for tourist/monument guides at Centrally Protected Monuments.",
-      href: "/new update/Review_26thOct/Guide policy 2014.pdf",
-      fallbackHref: "/act-and-rules/guide-policy-2014.pdf",
+      id: "photography-policy-2017-2018",
+      title: "Photography Policy 2017 & 2018 (Gazette of India)",
+      subtitle: "Official Gazette notifications detailing terms, conditions, filming operation protocols, and fee structures for still photography, filming, and videography at Centrally Protected Monuments.",
+      href: "/new update/Review_26thOct/2017 & 2018 photography policy gazetted of india_0001.pdf",
+      fallbackHref: "/act-and-rules/photography-policy-2017-2018-gazette-of-india.pdf",
       category: "Policy",
-      year: "2014",
-      yearValue: 2014,
-      size: "6.3 MB",
+      year: "2017-2018",
+      yearValue: 2017,
+      size: "7.6 MB",
       isNew: true
     },
     {
@@ -151,16 +63,104 @@ export default function ActsAndRules() {
       size: "3.0 MB"
     },
     {
-      id: "photography-policy-2017-2018",
-      title: "Photography Policy 2017 & 2018 (Gazette of India)",
-      subtitle: "Official Gazette notifications detailing terms, conditions, filming operation protocols, and fee structures for still photography, filming, and videography at Centrally Protected Monuments.",
-      href: "/new update/Review_26thOct/2017 & 2018 photography policy gazetted of india_0001.pdf",
-      fallbackHref: "/act-and-rules/photography-policy-2017-2018-gazette-of-india.pdf",
+      id: "guide-policy-2014",
+      title: "Guide Policy 2014",
+      subtitle: "Comprehensive policy guidelines for engagement, licensing, authorization, and code of conduct for tourist/monument guides at Centrally Protected Monuments.",
+      href: "/new update/Review_26thOct/Guide policy 2014.pdf",
+      fallbackHref: "/act-and-rules/guide-policy-2014.pdf",
       category: "Policy",
-      year: "2017-2018",
-      yearValue: 2017,
-      size: "7.6 MB",
+      year: "2014",
+      yearValue: 2014,
+      size: "6.3 MB",
       isNew: true
+    },
+    {
+      id: "nma-rules-2011",
+      title: "National Monuments Authority Rules 2011 and Amendments",
+      subtitle: "Statutory rules and subsequent regulatory amendments establishing procedures and powers of the National Monuments Authority.",
+      href: "/act-and-rules/nma-rules-2011-amendments.pdf",
+      fallbackHref: "/act-and-rules/nma-rules-2011-amendments.pdf",
+      category: "Rule",
+      year: "2011",
+      yearValue: 2011,
+      size: "5.1 MB"
+    },
+    {
+      id: "amasr-act-2010",
+      title: "AMASR Act 2010 Gazette Notification",
+      subtitle: "Official Gazette Notification enacting statutory amendments to the AMASR Act defining prohibited and regulated heritage zones.",
+      href: "/act-and-rules/amasr-act-2010-gazette-notification.pdf",
+      fallbackHref: "/act-and-rules/amasr-act-2010-gazette-notification.pdf",
+      category: "Rule",
+      year: "2010",
+      yearValue: 2010,
+      size: "588 KB"
+    },
+    {
+      id: "aat-rules-1973",
+      title: "Antiquities and Art Treasure Rules 1973",
+      subtitle: "Administrative, licensing, and recordkeeping statutory rules enacted under the Antiquities and Art Treasure Act 1972.",
+      href: "/act-and-rules/aat-rules-1973.pdf",
+      fallbackHref: "/act-and-rules/aat-rules-1973.pdf",
+      category: "Rule",
+      year: "1973",
+      yearValue: 1973,
+      size: "266 KB"
+    },
+    {
+      id: "aat-act-1972",
+      title: "Antiquities and Art Treasure Act 1972",
+      subtitle: "Act to regulate export trade in antiquities and art treasures and prevent smuggling of, and fraudulent dealings in antiquities.",
+      href: "/act-and-rules/aat-act-1972.pdf",
+      fallbackHref: "/act-and-rules/aat-act-1972.pdf",
+      category: "Act",
+      year: "1972",
+      yearValue: 1972,
+      size: "328 KB"
+    },
+    {
+      id: "amasr-rules-1959",
+      title: "Act Rules 1959 (AMASR Rules)",
+      subtitle: "Detailed operational and procedural regulations established pursuant to the AMASR Act 1958.",
+      href: "/act-and-rules/amasr-rules-1959.pdf",
+      fallbackHref: "/act-and-rules/amasr-rules-1959.pdf",
+      category: "Rule",
+      year: "1959",
+      yearValue: 1959,
+      size: "111 KB"
+    },
+    {
+      id: "amasr-act-1958",
+      title: "Ancient Monuments and Archaeological Sites and Remains Act 1958",
+      subtitle: "Principal statutory act providing preservation of ancient and historical monuments, archaeological sites, and remains of national importance.",
+      href: "/act-and-rules/amasr-act-1958.pdf",
+      fallbackHref: "/act-and-rules/amasr-act-1958.pdf",
+      category: "Act",
+      year: "1958",
+      yearValue: 1958,
+      size: "388 KB"
+    },
+    {
+      id: "ancient-monuments-rules-1904",
+      title: "Ancient Monuments Rule 1904",
+      subtitle: "Early statutory administrative rules formulated under the Ancient Monuments Preservation Act of 1904.",
+      href: "/act-and-rules/ancient-monuments-rules-1904.pdf",
+      fallbackHref: "/act-and-rules/ancient-monuments-rules-1904.pdf",
+      category: "Rule",
+      year: "1904",
+      yearValue: 1904,
+      size: "147 KB"
+    },
+    {
+      id: "amp-act-1904",
+      title: "Ancient Monuments Preservation Act 1904",
+      subtitle: "Historic preservation legislation for the protection of monuments, excavation sites, and regulation of antiquities traffic.",
+      href: "/act-and-rules/amp-act-1904.pdf",
+      fallbackHref: "/act-and-rules/amp-act-1904.pdf",
+      category: "Act",
+      year: "1904",
+      yearValue: 1904,
+      size: "606 KB"
     }
   ];
 
@@ -314,7 +314,7 @@ export default function ActsAndRules() {
             >
               <Calendar className="w-3.5 h-3.5 text-[var(--color-saffron)]" />
               <span>
-                {sortOrder === 'asc' ? 'Year: 1904 → 2018 (Oldest First)' : 'Year: 2018 → 1904 (Newest First)'}
+                {sortOrder === 'desc' ? 'Year: 2018 → 1904 (Newest First)' : 'Year: 1904 → 2018 (Oldest First)'}
               </span>
               <ArrowUpDown className="w-3.5 h-3.5 text-stone-400" />
             </button>
