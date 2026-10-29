@@ -14,7 +14,9 @@ import {
   ArrowRight,
   Sparkles,
   BookOpen,
-  Filter
+  Filter,
+  Calendar,
+  ArrowUpDown
 } from 'lucide-react';
 
 interface DocumentItem {
@@ -25,6 +27,7 @@ interface DocumentItem {
   fallbackHref: string;
   category: 'Act' | 'Rule' | 'Policy';
   year: string;
+  yearValue: number;
   size: string;
   isNew?: boolean;
 }
@@ -32,38 +35,10 @@ interface DocumentItem {
 export default function ActsAndRules() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<'All' | 'Act' | 'Rule' | 'Policy'>('All');
+  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
 
+  // Documents arranged year-wise (chronological order)
   const documents: DocumentItem[] = [
-    {
-      id: "amasr-act-1958",
-      title: "Ancient Monuments and Archaeological Sites and Remains Act 1958",
-      subtitle: "Principal statutory act providing preservation of ancient and historical monuments, archaeological sites, and remains of national importance.",
-      href: "/act-and-rules/amasr-act-1958.pdf",
-      fallbackHref: "/act-and-rules/amasr-act-1958.pdf",
-      category: "Act",
-      year: "1958",
-      size: "388 KB"
-    },
-    {
-      id: "aat-act-1972",
-      title: "Antiquities and Art Treasure Act 1972",
-      subtitle: "Act to regulate export trade in antiquities and art treasures and prevent smuggling of, and fraudulent dealings in antiquities.",
-      href: "/act-and-rules/aat-act-1972.pdf",
-      fallbackHref: "/act-and-rules/aat-act-1972.pdf",
-      category: "Act",
-      year: "1972",
-      size: "328 KB"
-    },
-    {
-      id: "amasr-act-2010",
-      title: "AMASR Act 2010 Gazette Notification",
-      subtitle: "Official Gazette Notification enacting statutory amendments to the AMASR Act defining prohibited and regulated heritage zones.",
-      href: "/act-and-rules/amasr-act-2010-gazette-notification.pdf",
-      fallbackHref: "/act-and-rules/amasr-act-2010-gazette-notification.pdf",
-      category: "Rule",
-      year: "2010",
-      size: "588 KB"
-    },
     {
       id: "amp-act-1904",
       title: "Ancient Monuments Preservation Act 1904",
@@ -72,6 +47,7 @@ export default function ActsAndRules() {
       fallbackHref: "/act-and-rules/amp-act-1904.pdf",
       category: "Act",
       year: "1904",
+      yearValue: 1904,
       size: "606 KB"
     },
     {
@@ -82,7 +58,41 @@ export default function ActsAndRules() {
       fallbackHref: "/act-and-rules/ancient-monuments-rules-1904.pdf",
       category: "Rule",
       year: "1904",
+      yearValue: 1904,
       size: "147 KB"
+    },
+    {
+      id: "amasr-act-1958",
+      title: "Ancient Monuments and Archaeological Sites and Remains Act 1958",
+      subtitle: "Principal statutory act providing preservation of ancient and historical monuments, archaeological sites, and remains of national importance.",
+      href: "/act-and-rules/amasr-act-1958.pdf",
+      fallbackHref: "/act-and-rules/amasr-act-1958.pdf",
+      category: "Act",
+      year: "1958",
+      yearValue: 1958,
+      size: "388 KB"
+    },
+    {
+      id: "amasr-rules-1959",
+      title: "Act Rules 1959 (AMASR Rules)",
+      subtitle: "Detailed operational and procedural regulations established pursuant to the AMASR Act 1958.",
+      href: "/act-and-rules/amasr-rules-1959.pdf",
+      fallbackHref: "/act-and-rules/amasr-rules-1959.pdf",
+      category: "Rule",
+      year: "1959",
+      yearValue: 1959,
+      size: "111 KB"
+    },
+    {
+      id: "aat-act-1972",
+      title: "Antiquities and Art Treasure Act 1972",
+      subtitle: "Act to regulate export trade in antiquities and art treasures and prevent smuggling of, and fraudulent dealings in antiquities.",
+      href: "/act-and-rules/aat-act-1972.pdf",
+      fallbackHref: "/act-and-rules/aat-act-1972.pdf",
+      category: "Act",
+      year: "1972",
+      yearValue: 1972,
+      size: "328 KB"
     },
     {
       id: "aat-act-1972-hindi",
@@ -92,6 +102,7 @@ export default function ActsAndRules() {
       fallbackHref: "/act-and-rules/aat-act-1972-hindi.pdf",
       category: "Act",
       year: "1972",
+      yearValue: 1972,
       size: "9.6 MB"
     },
     {
@@ -102,17 +113,19 @@ export default function ActsAndRules() {
       fallbackHref: "/act-and-rules/aat-rules-1973.pdf",
       category: "Rule",
       year: "1973",
+      yearValue: 1973,
       size: "266 KB"
     },
     {
-      id: "amasr-rules-1959",
-      title: "Act Rules 1959 (AMASR Rules)",
-      subtitle: "Detailed operational and procedural regulations established pursuant to the AMASR Act 1958.",
-      href: "/act-and-rules/amasr-rules-1959.pdf",
-      fallbackHref: "/act-and-rules/amasr-rules-1959.pdf",
+      id: "amasr-act-2010",
+      title: "AMASR Act 2010 Gazette Notification",
+      subtitle: "Official Gazette Notification enacting statutory amendments to the AMASR Act defining prohibited and regulated heritage zones.",
+      href: "/act-and-rules/amasr-act-2010-gazette-notification.pdf",
+      fallbackHref: "/act-and-rules/amasr-act-2010-gazette-notification.pdf",
       category: "Rule",
-      year: "1959",
-      size: "111 KB"
+      year: "2010",
+      yearValue: 2010,
+      size: "588 KB"
     },
     {
       id: "nma-rules-2011",
@@ -122,17 +135,8 @@ export default function ActsAndRules() {
       fallbackHref: "/act-and-rules/nma-rules-2011-amendments.pdf",
       category: "Rule",
       year: "2011",
+      yearValue: 2011,
       size: "5.1 MB"
-    },
-    {
-      id: "cultural-events-guidelines",
-      title: "Guidelines for Holding Cultural Events at Protected Monuments",
-      subtitle: "Official parameters, permissions, and conditions for organizing cultural performances and functions at Centrally Protected sites.",
-      href: "/act-and-rules/guidelines-cultural-events-protected-monuments.pdf",
-      fallbackHref: "/act-and-rules/guidelines-cultural-events-protected-monuments.pdf",
-      category: "Policy",
-      year: "2016",
-      size: "3.0 MB"
     },
     {
       id: "guide-policy-2014",
@@ -142,8 +146,20 @@ export default function ActsAndRules() {
       fallbackHref: "/act-and-rules/guide-policy-2014.pdf",
       category: "Policy",
       year: "2014",
+      yearValue: 2014,
       size: "6.3 MB",
       isNew: true
+    },
+    {
+      id: "cultural-events-guidelines",
+      title: "Guidelines for Holding Cultural Events at Protected Monuments (2016)",
+      subtitle: "Official parameters, permissions, and conditions for organizing cultural performances and functions at Centrally Protected sites.",
+      href: "/act-and-rules/guidelines-cultural-events-protected-monuments.pdf",
+      fallbackHref: "/act-and-rules/guidelines-cultural-events-protected-monuments.pdf",
+      category: "Policy",
+      year: "2016",
+      yearValue: 2016,
+      size: "3.0 MB"
     },
     {
       id: "photography-policy-2017-2018",
@@ -153,26 +169,35 @@ export default function ActsAndRules() {
       fallbackHref: "/act-and-rules/photography-policy-2017-2018-gazette-of-india.pdf",
       category: "Policy",
       year: "2017-2018",
+      yearValue: 2017,
       size: "7.6 MB",
       isNew: true
     }
   ];
 
   const filteredDocuments = useMemo(() => {
-    return documents.filter((doc) => {
-      const matchesCategory = 
-        selectedCategory === 'All' ? true : doc.category === selectedCategory;
-      
-      const query = searchQuery.trim().toLowerCase();
-      const matchesSearch = query === '' || 
-        doc.title.toLowerCase().includes(query) ||
-        doc.subtitle.toLowerCase().includes(query) ||
-        doc.year.toLowerCase().includes(query) ||
-        doc.category.toLowerCase().includes(query);
+    return documents
+      .filter((doc) => {
+        const matchesCategory = 
+          selectedCategory === 'All' ? true : doc.category === selectedCategory;
+        
+        const query = searchQuery.trim().toLowerCase();
+        const matchesSearch = query === '' || 
+          doc.title.toLowerCase().includes(query) ||
+          doc.subtitle.toLowerCase().includes(query) ||
+          doc.year.toLowerCase().includes(query) ||
+          doc.category.toLowerCase().includes(query);
 
-      return matchesCategory && matchesSearch;
-    });
-  }, [documents, selectedCategory, searchQuery]);
+        return matchesCategory && matchesSearch;
+      })
+      .sort((a, b) => {
+        if (sortOrder === 'asc') {
+          return a.yearValue - b.yearValue;
+        } else {
+          return b.yearValue - a.yearValue;
+        }
+      });
+  }, [documents, selectedCategory, searchQuery, sortOrder]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -231,7 +256,7 @@ export default function ActsAndRules() {
         <title>Acts, Rules &amp; Policies - ASI Puri Circle</title>
         <meta 
           name="description" 
-          content="Official acts, statutory rules, gazette notifications, and policy frameworks including Guide Policy and Photography Policy governing Archaeological Survey of India, Puri Circle." 
+          content="Official acts, statutory rule letters, gazette notifications, and policy frameworks arranged year-wise governing Archaeological Survey of India, Puri Circle." 
         />
       </Helmet>
 
@@ -255,45 +280,62 @@ export default function ActsAndRules() {
             Acts, Rules &amp; Policies
           </h1>
           <p className="font-sans text-sm sm:text-base text-[var(--color-dark-stone)] opacity-80">
-            Download and consult official legislation, statutory rules, gazette notifications, and guidelines governing Centrally Protected Monuments and archaeological conservation under ASI Puri Circle.
+            Official legislative acts, statutory rule letters, gazette notifications, and policy guidelines governing Centrally Protected Monuments under ASI Puri Circle, arranged year-wise.
           </p>
           <div className="w-20 h-1 bg-gradient-to-r from-[var(--color-indigo)] to-[var(--color-saffron)] mx-auto rounded-full" />
         </motion.div>
 
-        {/* Search & Filter Controls */}
+        {/* Search, Filter & Year Sort Controls */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="bg-[var(--color-glass-surface)] backdrop-blur-xl border border-[var(--color-glass-border)] rounded-2xl p-4 sm:p-5 mb-8 shadow-xs flex flex-col md:flex-row items-center justify-between gap-4"
+          className="bg-[var(--color-glass-surface)] backdrop-blur-xl border border-[var(--color-glass-border)] rounded-2xl p-4 sm:p-5 mb-8 shadow-xs flex flex-col gap-4"
         >
-          {/* Search Box */}
-          <div className="relative w-full md:w-80">
-            <Search className="w-4 h-4 text-stone-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search acts, rules, policies..."
-              className="w-full pl-10 pr-9 py-2.5 rounded-xl bg-white/90 border border-[#C19A6B]/30 text-xs sm:text-sm text-[var(--color-dark-stone)] placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-[var(--color-saffron)] transition-all"
-            />
-            {searchQuery && (
-              <button
-                type="button"
-                onClick={() => setSearchQuery('')}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-700 transition-colors"
-                aria-label="Clear search"
-              >
-                <X className="w-4 h-4" />
-              </button>
-            )}
+          {/* Top Row: Search & Sort Toggle */}
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 w-full">
+            {/* Search Box */}
+            <div className="relative w-full sm:flex-1 max-w-md">
+              <Search className="w-4 h-4 text-stone-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search acts, rules, circulars, or year..."
+                className="w-full pl-10 pr-9 py-2.5 rounded-xl bg-white/90 border border-[#C19A6B]/30 text-xs sm:text-sm text-[var(--color-dark-stone)] placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-[var(--color-saffron)] transition-all"
+              />
+              {searchQuery && (
+                <button
+                  type="button"
+                  onClick={() => setSearchQuery('')}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-700 transition-colors cursor-pointer"
+                  aria-label="Clear search"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              )}
+            </div>
+
+            {/* Year Sorting Button */}
+            <button
+              type="button"
+              onClick={() => setSortOrder(prev => prev === 'asc' ? 'desc' : 'asc')}
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/90 hover:bg-white border border-[#C19A6B]/30 text-xs font-bold text-[var(--color-indigo)] shadow-xs transition-all w-full sm:w-auto justify-center cursor-pointer hover:border-[var(--color-saffron)]"
+              title="Toggle Chronological / Reverse Year Sorting"
+            >
+              <Calendar className="w-3.5 h-3.5 text-[var(--color-saffron)]" />
+              <span>
+                {sortOrder === 'asc' ? 'Year: 1904 → 2018 (Oldest First)' : 'Year: 2018 → 1904 (Newest First)'}
+              </span>
+              <ArrowUpDown className="w-3.5 h-3.5 text-stone-400" />
+            </button>
           </div>
 
-          {/* Filter Pills */}
-          <div className="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-1 md:pb-0 scrollbar-none">
+          {/* Bottom Row: Category Filter Pills */}
+          <div className="flex items-center gap-2 overflow-x-auto w-full pt-1 border-t border-stone-200/50 scrollbar-none">
             <span className="text-xs font-bold text-[var(--color-dark-stone)] opacity-70 flex items-center gap-1 shrink-0 mr-1">
               <Filter className="w-3.5 h-3.5" />
-              Filter:
+              Category:
             </span>
             {(['All', 'Act', 'Rule', 'Policy'] as const).map((cat) => {
               const isActive = selectedCategory === cat;
@@ -326,12 +368,12 @@ export default function ActsAndRules() {
               No documents found
             </h3>
             <p className="text-xs sm:text-sm text-[var(--color-dark-stone)] opacity-75 max-w-sm mx-auto mb-4">
-              We couldn't find any act, rule, or policy matching "{searchQuery}".
+              We couldn't find any act, rule letter, or policy matching "{searchQuery}".
             </p>
             <button
               type="button"
               onClick={() => { setSearchQuery(''); setSelectedCategory('All'); }}
-              className="px-4 py-2 rounded-xl bg-gradient-to-r from-[var(--color-indigo)] to-[var(--color-saffron)] text-white text-xs font-bold shadow-xs hover:brightness-105"
+              className="px-4 py-2 rounded-xl bg-gradient-to-r from-[var(--color-indigo)] to-[var(--color-saffron)] text-white text-xs font-bold shadow-xs hover:brightness-105 cursor-pointer"
             >
               Reset Filters
             </button>
@@ -362,13 +404,16 @@ export default function ActsAndRules() {
                         <div className="space-y-1.5 flex-1 min-w-0">
                           {/* Badges */}
                           <div className="flex items-center gap-2 flex-wrap">
+                            {/* Year Badge */}
+                            <span className="inline-flex items-center gap-1 text-[10px] font-extrabold uppercase tracking-wider text-amber-950 bg-amber-100/90 px-2.5 py-0.5 rounded-full border border-amber-300 shadow-xs">
+                              <Calendar className="w-3 h-3 text-[#A8451A]" />
+                              <span>{doc.year}</span>
+                            </span>
+
+                            {/* Category Badge */}
                             <span className={`inline-flex items-center gap-1 text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full border ${badge.bg}`}>
                               {badge.icon}
                               <span>{doc.category}</span>
-                            </span>
-
-                            <span className="text-[10px] font-bold text-stone-600 bg-stone-100/90 px-2 py-0.5 rounded-full border border-stone-200">
-                              {doc.year}
                             </span>
 
                             <span className="text-[10px] font-medium text-stone-500">
@@ -376,8 +421,8 @@ export default function ActsAndRules() {
                             </span>
 
                             {doc.isNew && (
-                              <span className="inline-flex items-center gap-1 text-[10px] font-extrabold uppercase tracking-wider text-amber-900 bg-amber-100/90 px-2.5 py-0.5 rounded-full border border-amber-300 animate-pulse">
-                                <Sparkles className="w-2.5 h-2.5 text-amber-700" />
+                              <span className="inline-flex items-center gap-1 text-[10px] font-extrabold uppercase tracking-wider text-emerald-900 bg-emerald-100/90 px-2.5 py-0.5 rounded-full border border-emerald-300 animate-pulse">
+                                <Sparkles className="w-2.5 h-2.5 text-emerald-700" />
                                 Updated Policy
                               </span>
                             )}
