@@ -95,17 +95,6 @@ export default function ActsAndRules() {
       size: "328 KB"
     },
     {
-      id: "aat-act-1972-hindi",
-      title: "Antiquities and Art Treasure Act 1972 (Hindi)",
-      subtitle: "पुराविशेष तथा बहुमूल्य कलाकृति अधिनियम, 1972 (हिन्दी अनुवाद सहित प्राधिकृत प्रति)",
-      href: "/act-and-rules/aat-act-1972-hindi.pdf",
-      fallbackHref: "/act-and-rules/aat-act-1972-hindi.pdf",
-      category: "Act",
-      year: "1972",
-      yearValue: 1972,
-      size: "9.6 MB"
-    },
-    {
       id: "aat-rules-1973",
       title: "Antiquities and Art Treasure Rules 1973",
       subtitle: "Administrative, licensing, and recordkeeping statutory rules enacted under the Antiquities and Art Treasure Act 1972.",

@@ -179,7 +179,7 @@ export default function AboutUs() {
                   Apart this three archaeological Museums are under this circle namely Archaeological Museum Konark, district Puri, established in 1968; Archaeological Museum Ratnagiri, district Jajpur; established in 1998 and Archaeological Museum Lalitagiri, district Cuttack, established in 2018.
                 </p>
                 <p>
-                  The conservation and maintenance of the monuments / sites are managed through its four Sub Circle namely Puri Sub Circle, Konark Subcircle, Cuttack Sub Circle and Dhenkanal Sub Circle.
+                  The conservation and maintenance of the monuments / sites are managed through its four Sub Circle namely Cuttack Sub Circle, Dhenkanal Sub Circle, Konark Sub Circle and Puri Sub Circle.
                 </p>
               </div>
             </div>
@@ -216,16 +216,17 @@ export default function AboutUs() {
                     ]
                   },
                   {
-                    name: 'Puri Sub-Circle',
-                    cpm: '2 CPMs',
-                    inCharge: 'Sr. CA Sourav Tewary',
-                    contact: '7980703277',
+                    name: 'Dhenkanal Sub-Circle',
+                    cpm: '8 CPMs',
+                    inCharge: 'CA Jyoti Ranjan Pradhan',
+                    contact: '9348549465',
                     highlights: [
-                      'Shri Jagannath Temple and subsidiary shrines together with adjacent area'
+                      'Chandrasekhar Temple (Group of Monuments and Ancient Steps), Dhenkanal',
+                      'Ananta Sayi Vishnu, Dhenkanal'
                     ]
                   },
                   {
-                    name: 'Konark Sub Circle',
+                    name: 'Konark Sub-Circle',
                     cpm: '2 CPMs',
                     inCharge: 'CA Trailokyanath Behera',
                     contact: '9801980199',
@@ -235,13 +236,12 @@ export default function AboutUs() {
                     ]
                   },
                   {
-                    name: 'Dhekanal Sub-Circle',
-                    cpm: '8 CPMs',
-                    inCharge: 'CA Jyoti Ranjan Pradhan',
-                    contact: '9348549465',
+                    name: 'Puri Sub-Circle',
+                    cpm: '2 CPMs',
+                    inCharge: 'Sr. CA Sourav Tewary',
+                    contact: '7980703277',
                     highlights: [
-                      'Chandrasekhar Temple (Group of Monuments and Ancient Steps), Dhekannal',
-                      'Ananta Sayi Vishnu, Dhekannal'
+                      'Shri Jagannath Temple and subsidiary shrines together with adjacent area'
                     ]
                   }
                 ].map((sc, idx) => (
