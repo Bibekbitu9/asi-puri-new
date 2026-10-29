@@ -25,6 +25,27 @@ export default function CircleMuseums() {
 
   const museums = [
     {
+      id: 'konark-museum',
+      name: 'Archaeological Museum, Konark',
+      location: 'Konark, Dist-Puri, Odisha',
+      description: [
+        "Konarak a small village (Lat.19.53N Long 86:.06E) is in puri district within 3 km. of the Bay of Bengal. It can be reached either from puri (35 kms.) or from Bhubaneswar (66 kms.). Konarak owes its singular distinction to the magnificent sun temple built by monarch Narasimhadeva 1 (1238-64) of the illustrious Ganga dynasty. The site museum of Konarak is the product of the grand monument of sun temple.",
+        "Archaeological museum at Konarak is a site museum located at a couple of hundred meters away from the main temple in the north direction. In order to preserve and protect them not only from sun and rain but also from human vandalism, the fallen architectural and sculptural superb specimens of the Sun temple earlier preserved in the complex then shifted to the present museum building in 1968. In a way these collections in the museum imparts the educational activities and convey the message of the aesthetic and cultural grandeur of the past glory to the people. The Sun temple at Konarak being the only World heritage Monument in the whole of eastern India the site museum as an integral associate of the grand edifice also assumes special importance.",
+        "The foundation of the building was laid by Humayun Kabir, the then Hon’ble Minister of Scientific Research of the union of India in 1960 and the museum with originally with three galleries was declared open by then Hon’ble Minister of education Dr. Triguna Sen in 1968. But one more gallery has been organized and opened during the financial year 2003-04. The site museum is a veritable store house of antiquities displayed in the most scientific and systematic manner. For the benefit of the tourists/visitors to the museum a software information kiosk has been installed recently. The museum has four galleries for housing and displaying 260 nos. of various antiquities retrieved from the clearance work of Sun temple. Besides, it is rich in reserve collection of having 456 nos. of antiquities."
+      ],
+      openingYear: '1968',
+      antiquities: 'Displayed: 262, Reserve: 455, Sun Temple complex: 5',
+      material: 'Stones',
+      area: '41250.29 Sqmt. (10.193 Ac.)',
+      galleryArea: '1339.45 Sqmt. (0.3756 Ac.)',
+      nmma: '722',
+      condition: 'Good',
+      icName: 'Dr Tikam Tenwar, ASA',
+      icContact: 'asamkonark@gmail.com',
+      videoUrl: 'https://asi-tour.in/videos/Konark%20Museum%20mail.mp4'
+    },
+    {
+      id: 'ratnagiri-museum',
       name: 'Archaeological Museum, Ratnagiri',
       location: 'Ratnagiri, Dist- Jajpur, Odisha',
       description: [
@@ -43,6 +64,7 @@ export default function CircleMuseums() {
       videoUrl: 'https://asi-tour.in/videos/Ratnagiri%20Museum%20mail.mp4'
     },
     {
+      id: 'lalitagiri-museum',
       name: 'Archaeological Museum, Lalitagiri',
       location: 'Naltigiri (Lalitagiri), Dist-Cuttack, Odisha',
       description: [
@@ -59,25 +81,6 @@ export default function CircleMuseums() {
       icName: 'Dr P.P Pradhan, ASA',
       icContact: 'asamratnagiri@gmail.com',
       videoUrl: 'https://asi-tour.in/videos/Lalitgiri%20Museum%20mail.mp4'
-    },
-    {
-      name: 'Archaeological Museum, Konark',
-      location: 'Konark, Dist-Puri, Odisha',
-      description: [
-        "Konarak a small village (Lat.19.53N Long 86:.06E) is in puri district within 3 km. of the Bay of Bengal. It can be reached either from puri (35 kms.) or from Bhubaneswar (66 kms.). Konarak owes its singular distinction to the magnificent sun temple built by monarch Narasimhadeva 1 (1238-64) of the illustrious Ganga dynasty. The site museum of Konarak is the product of the grand monument of sun temple.",
-        "Archaeological museum at Konarak is a site museum located at a couple of hundred meters away from the main temple in the north direction. In order to preserve and protect them not only from sun and rain but also from human vandalism, the fallen architectural and sculptural superb specimens of the Sun temple earlier preserved in the complex then shifted to the present museum building in 1968. In a way these collections in the museum imparts the educational activities and convey the message of the aesthetic and cultural grandeur of the past glory to the people. The Sun temple at Konarak being the only World heritage Monument in the whole of eastern India the site museum as an integral associate of the grand edifice also assumes special importance.",
-        "The foundation of the building was laid by Humayun Kabir, the then Hon’ble Minister of Scientific Research of the union of India in 1960 and the museum with originally with three galleries was declared open by then Hon’ble Minister of education Dr. Triguna Sen in 1968. But one more gallery has been organized and opened during the financial year 2003-04. The site museum is a veritable store house of antiquities displayed in the most scientific and systematic manner. For the benefit of the tourists/visitors to the museum a software information kiosk has been installed recently. The museum has four galleries for housing and displaying 260 nos. of various antiquities retrieved from the clearance work of Sun temple. Besides, it is rich in reserve collection of having 456 nos. of antiquities."
-      ],
-      openingYear: '1968',
-      antiquities: 'Displayed: 262, Reserve: 455, Sun Temple complex: 5',
-      material: 'Stones',
-      area: '41250.29 Sqmt. (10.193 Ac.)',
-      galleryArea: '1339.45 Sqmt. (0.3756 Ac.)',
-      nmma: '722',
-      condition: 'Good',
-      icName: 'Dr Tikam Tenwar, ASA',
-      icContact: 'asamkonark@gmail.com',
-      videoUrl: 'https://asi-tour.in/videos/Konark%20Museum%20mail.mp4'
     }
   ];
 
@@ -121,7 +124,7 @@ export default function CircleMuseums() {
           className="space-y-12"
         >
           {museums.map((museum, idx) => (
-            <motion.div key={idx} variants={itemVariants} className="relative group perspective-1000">
+            <motion.div key={idx} id={museum.id} variants={itemVariants} className="relative group perspective-1000 scroll-mt-28">
               <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-saffron)] to-transparent rounded-[28px] blur-md opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
               <div className="relative bg-[var(--color-glass-surface)] backdrop-blur-xl border border-[var(--color-glass-border)] rounded-[28px] p-6 md:p-10 shadow-[0_20px_40px_rgba(74,28,10,0.05)] flex flex-col md:flex-row gap-8">
                 

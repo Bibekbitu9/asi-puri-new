@@ -115,7 +115,7 @@ export default function Home() {
                   The Puri Circle was created vide notification number J-11014/3/2023-Planning, dated 9/11/2022 after bifurcation of the erstwhile Bhubaneswar Circle in the state of Odisha. The jurisdiction of the Circle includes 15 districts of Odisha.
                 </p>
                 <p className="text-[var(--color-dark-stone)] opacity-90 text-base md:text-lg leading-relaxed text-justify">
-                  As of now there are 40 Centrally Protected monuments within its domain, including the world heritage property Sun temple Konark and the world famous Lord Jagannath temple Puri. Furthermore, three archaeological museums (Ratnagiri, Lalitagiri, and Konark) are managed under this circle.
+                  As of now there are 40 Centrally Protected monuments within its domain, including the world heritage property Sun temple Konark and the world famous Lord Jagannath temple Puri. Furthermore, three archaeological museums (Konark, Ratnagiri, and Lalitagiri) are managed under this circle.
                 </p>
               </div>
 
