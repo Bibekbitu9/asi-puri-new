@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-const DOMAIN = 'https://asi-puri.vercel.app';
+const DOMAIN = 'https://asipuricircle.in';
 
 // Read monuments data
 const dataPath = path.resolve('src/data/monuments.json');

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/SEO';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, MessageSquare, Scale } from 'lucide-react';
 
@@ -17,6 +17,27 @@ export default function ContactUs() {
     visible: { opacity: 1, y: 0 }
   };
 
+  const contactStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact ASI Puri Circle",
+    "description": "Contact directory for Superintending Archaeologist, circle officers, and sub-circle in-charges of ASI Puri Circle.",
+    "mainEntity": {
+      "@type": "GovernmentOrganization",
+      "name": "Archaeological Survey of India, Puri Circle",
+      "telephone": "+91-6752-291030",
+      "email": "circlepur.asi@gov.in",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Archaeological Survey of India, Puri Circle",
+        "addressLocality": "Puri",
+        "addressRegion": "Odisha",
+        "postalCode": "752002",
+        "addressCountry": "IN"
+      }
+    }
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -24,9 +45,12 @@ export default function ContactUs() {
       exit={{ opacity: 0 }}
       className="bg-transparent min-h-screen py-16"
     >
-      <Helmet>
-        <title>Contact Us - ASI Puri Circle</title>
-      </Helmet>
+      <SEO 
+        title="Contact Us" 
+        description="Official contact directory for Archaeological Survey of India (ASI), Puri Circle. In-charges for Cuttack, Dhenkanal, Konark, and Puri sub-circles." 
+        url="/contact-us"
+        structuredData={contactStructuredData}
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 

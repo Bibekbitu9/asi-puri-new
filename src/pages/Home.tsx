@@ -64,6 +64,27 @@ export default function Home() {
     }
   };
 
+  const homeStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "GovernmentOrganization",
+    "name": "Archaeological Survey of India, Puri Circle",
+    "alternateName": "ASI Puri Circle",
+    "url": "https://asipuricircle.in",
+    "logo": "https://asipuricircle.in/asi_logo.jpg.jpeg",
+    "description": "Official web portal of the Archaeological Survey of India (ASI), Puri Circle under Ministry of Culture, Government of India. Preserving 40 Centrally Protected Monuments including Sun Temple Konark and Shri Jagannath Temple across 15 districts of Odisha.",
+    "department": [
+      { "@type": "GovernmentOrganization", "name": "Cuttack Sub-Circle" },
+      { "@type": "GovernmentOrganization", "name": "Dhenkanal Sub-Circle" },
+      { "@type": "GovernmentOrganization", "name": "Konark Sub-Circle" },
+      { "@type": "GovernmentOrganization", "name": "Puri Sub-Circle" }
+    ],
+    "parentOrganization": {
+      "@type": "GovernmentOrganization",
+      "name": "Archaeological Survey of India",
+      "url": "https://asi.nic.in"
+    }
+  };
+
   return (
     <motion.div 
       initial={{ opacity: 0 }}
@@ -71,7 +92,12 @@ export default function Home() {
       exit={{ opacity: 0 }}
       className="w-full bg-transparent text-[var(--color-dark-stone)]"
     >
-      <SEO title={t('nav.home') || 'Home'} />
+      <SEO 
+        title={t('nav.home') || 'Home'} 
+        description="Official portal of ASI Puri Circle under Ministry of Culture, GoI. Preserving 40 Centrally Protected Monuments and 3 Site Museums across 15 districts of Odisha."
+        url="/"
+        structuredData={homeStructuredData} 
+      />
       
       {/* Hero Carousel Section */}
       <HeroCarousel />
@@ -251,7 +277,7 @@ export default function Home() {
                       <Image
                         alt={getMonumentName(m)}
                         className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-                        src={m.images[0] || '/placeholder.svg'}
+                        src={encodeURI(m.images[0] || '/placeholder.svg')}
                         layout="fullWidth"
                         loading="lazy"
                       />

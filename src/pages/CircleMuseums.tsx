@@ -84,6 +84,51 @@ export default function CircleMuseums() {
     }
   ];
 
+  const museumsStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Site Museums of ASI Puri Circle",
+    "description": "Explore the three official site museums under the Archaeological Survey of India (ASI), Puri Circle: Konark, Ratnagiri, and Lalitagiri.",
+    "itemListElement": [
+      {
+        "@type": "Museum",
+        "position": 1,
+        "name": "Archaeological Museum, Konark",
+        "description": "Established in 1968, housing 262 displayed and 455 reserve antiquities from the Sun Temple complex.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Konark",
+          "addressRegion": "Puri, Odisha",
+          "addressCountry": "IN"
+        }
+      },
+      {
+        "@type": "Museum",
+        "position": 2,
+        "name": "Archaeological Museum, Ratnagiri",
+        "description": "Established in 1998, displaying 252 displayed and 3288 reserve Buddhist sculptures and artifacts.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Ratnagiri",
+          "addressRegion": "Jajpur, Odisha",
+          "addressCountry": "IN"
+        }
+      },
+      {
+        "@type": "Museum",
+        "position": 3,
+        "name": "Archaeological Museum, Lalitagiri",
+        "description": "Inaugurated in 2018, housing 50 displayed and 325 reserve artifacts including sacred relic caskets.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Lalitagiri",
+          "addressRegion": "Cuttack, Odisha",
+          "addressCountry": "IN"
+        }
+      }
+    ]
+  };
+
   return (
     <motion.div 
       initial={{ opacity: 0 }}
@@ -91,7 +136,12 @@ export default function CircleMuseums() {
       exit={{ opacity: 0 }}
       className="w-full min-h-screen bg-transparent text-[#E6D8B8] relative overflow-hidden pb-20"
     >
-      <SEO title="Circle Museums - ASI Puri Circle" />
+      <SEO 
+        title="Site Museums" 
+        description="Explore the three official site museums under ASI Puri Circle: Konark Archaeological Museum (Est. 1968), Ratnagiri Archaeological Museum (Est. 1998), and Lalitagiri Archaeological Museum (Est. 2018)."
+        url="/circle-museums"
+        structuredData={museumsStructuredData}
+      />
       
       {/* Background Glows for depth */}
       <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-orange-600/10 blur-[120px] pointer-events-none" />

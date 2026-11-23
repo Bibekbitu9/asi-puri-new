@@ -60,6 +60,20 @@ export default function AboutUs() {
     }
   };
 
+  const aboutStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "GovernmentOrganization",
+    "name": "Archaeological Survey of India, Puri Circle",
+    "alternateName": "ASI Puri Circle",
+    "url": "https://asipuricircle.in/about",
+    "description": "Learn about the formation, jurisdiction, 4 sub-circles (Cuttack, Dhenkanal, Konark, Puri), and administrative leadership of the Archaeological Survey of India, Puri Circle.",
+    "member": officials.map((o) => ({
+      "@type": "Person",
+      "name": o.name,
+      "jobTitle": o.designation
+    }))
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -67,7 +81,12 @@ export default function AboutUs() {
       exit={{ opacity: 0 }}
       className="w-full min-h-screen bg-transparent text-[#E6D8B8] relative overflow-hidden pb-20"
     >
-      <SEO title="About ASI Puri Circle" />
+      <SEO 
+        title="About Us" 
+        description="Learn about the formation on 9th November 2022, jurisdiction across 15 districts of Odisha, administrative leadership, and 4 sub-circles of ASI Puri Circle."
+        url="/about"
+        structuredData={aboutStructuredData}
+      />
 
       {/* Background Glows for depth */}
       <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-orange-600/10 blur-[120px] pointer-events-none" />
@@ -127,7 +146,7 @@ export default function AboutUs() {
                   <div className="relative mb-4 p-1.5 rounded-full bg-white shadow-md border border-[#C19A6B]/25 group-hover:border-[var(--color-saffron)]/50 transition-colors duration-300">
                     <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden bg-white ring-2 ring-white">
                       <img
-                        src={official.photo}
+                        src={encodeURI(official.photo)}
                         alt={`Headshot of ${official.name}, ${official.designation}`}
                         loading="lazy"
                         className="w-full h-full rounded-full object-cover object-top group-hover:scale-108 transition-transform duration-300 bg-white"

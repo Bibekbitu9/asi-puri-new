@@ -190,3 +190,4 @@ npm run preview
 - [ ] No unencoded spaces in image/file paths.
 - [ ] Mobile navigation and focus rings operate cleanly.
 - [ ] All modals handle keyboard `Escape` and backdrop clicks.
+

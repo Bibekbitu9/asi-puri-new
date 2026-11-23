@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/SEO';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Ticket, 
@@ -237,6 +237,70 @@ export default function Tickets() {
     visible: { opacity: 1, y: 0 }
   };
 
+  const ticketingStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Entry Tickets & Tariff - ASI Puri Circle",
+    "description": "Official entry tickets, tariffs, fast-track PayGov & PayU QR codes for Sun Temple Konark, Ratnagiri Buddhist Site & Museums.",
+    "itemListElement": [
+      {
+        "@type": "TouristAttraction",
+        "position": 1,
+        "name": "Sun Temple, Konark",
+        "offers": {
+          "@type": "Offer",
+          "price": "35",
+          "priceCurrency": "INR",
+          "url": "https://asipuricircle.in/tickets#sun-temple-konark"
+        }
+      },
+      {
+        "@type": "TouristAttraction",
+        "position": 2,
+        "name": "Archaeological Museum, Konark",
+        "offers": {
+          "@type": "Offer",
+          "price": "10",
+          "priceCurrency": "INR",
+          "url": "https://asipuricircle.in/tickets#archaeological-museum-konark"
+        }
+      },
+      {
+        "@type": "TouristAttraction",
+        "position": 3,
+        "name": "Buddhist Site, Ratnagiri",
+        "offers": {
+          "@type": "Offer",
+          "price": "20",
+          "priceCurrency": "INR",
+          "url": "https://asipuricircle.in/tickets#buddhist-site-ratnagiri"
+        }
+      },
+      {
+        "@type": "TouristAttraction",
+        "position": 4,
+        "name": "Archaeological Museum, Ratnagiri",
+        "offers": {
+          "@type": "Offer",
+          "price": "5",
+          "priceCurrency": "INR",
+          "url": "https://asipuricircle.in/tickets#archaeological-museum-ratnagiri"
+        }
+      },
+      {
+        "@type": "TouristAttraction",
+        "position": 5,
+        "name": "Buddhist Site, Lalitagiri",
+        "offers": {
+          "@type": "Offer",
+          "price": "20",
+          "priceCurrency": "INR",
+          "url": "https://asipuricircle.in/tickets#buddhist-site-lalitagiri"
+        }
+      }
+    ]
+  };
+
   return (
     <motion.div 
       initial={{ opacity: 0 }}
@@ -244,13 +308,12 @@ export default function Tickets() {
       exit={{ opacity: 0 }}
       className="w-full min-h-screen bg-transparent text-[#E6D8B8] relative overflow-hidden pb-24"
     >
-      <Helmet>
-        <title>Tickets &amp; Entry Fees - ASI Puri Circle</title>
-        <meta 
-          name="description" 
-          content="Official ticket prices, visitor entry fees, and instant fast-track QR codes for Centrally Protected Ticketed Monuments and Site Museums under Archaeological Survey of India, Puri Circle." 
-        />
-      </Helmet>
+      <SEO 
+        title="Tickets & Tariff" 
+        description="Official ticket prices, visitor entry fees, and instant fast-track QR codes for Centrally Protected Ticketed Monuments and Site Museums under Archaeological Survey of India, Puri Circle." 
+        url="/tickets"
+        structuredData={ticketingStructuredData}
+      />
 
       {/* Ambient Heritage Glows */}
       <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-orange-600/10 blur-[120px] pointer-events-none" />

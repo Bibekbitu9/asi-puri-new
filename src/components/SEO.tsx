@@ -12,14 +12,20 @@ interface SEOProps {
 export default function SEO({ title, description, image, url, structuredData }: SEOProps) {
   const { t, i18n } = useTranslation();
   
-  const defaultTitle = t('hero.title') || 'ASI Puri Heritage';
-  const defaultDescription = t('hero.tagline') || 'Preserving the rich cultural heritage and magnificent sandstone monuments of Odisha';
-  const siteUrl = 'https://asi-puri.vercel.app'; // Update this if domain changes
+  const siteUrl = 'https://asipuricircle.in';
+  const defaultTitle = t('hero.title') || 'ASI Puri Circle - Archaeological Survey of India';
+  const defaultDescription = t('hero.tagline') || 'Official web portal of Archaeological Survey of India (ASI), Puri Circle. Custodian of 40 Centrally Protected Monuments and 3 Site Museums in Odisha.';
   
-  const seoTitle = title ? `${title} | ${defaultTitle}` : defaultTitle;
+  const seoTitle = title 
+    ? (title.includes('ASI Puri') ? title : `${title} | ASI Puri Circle`) 
+    : defaultTitle;
   const seoDescription = description || defaultDescription;
-  const seoImage = image ? `${siteUrl}${image}` : `${siteUrl}/images/(4) The Ancient Monument of the Black Pagoda/2.JPG`;
-  const seoUrl = url ? `${siteUrl}${url}` : siteUrl;
+  const seoImage = image 
+    ? (image.startsWith('http') ? image : `${siteUrl}${encodeURI(image)}`) 
+    : `${siteUrl}/asi_logo.jpg.jpeg`;
+  const seoUrl = url 
+    ? (url.startsWith('http') ? url : `${siteUrl}${url}`) 
+    : siteUrl;
 
   return (
     <Helmet>
@@ -34,6 +40,7 @@ export default function SEO({ title, description, image, url, structuredData }: 
       {/* Open Graph / Facebook */}
       <meta property="og:type" content="website" />
       <meta property="og:url" content={seoUrl} />
+      <meta property="og:site_name" content="Archaeological Survey of India, Puri Circle" />
       <meta property="og:title" content={seoTitle} />
       <meta property="og:description" content={seoDescription} />
       <meta property="og:image" content={seoImage} />
@@ -54,4 +61,3 @@ export default function SEO({ title, description, image, url, structuredData }: 
     </Helmet>
   );
 }
-

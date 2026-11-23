@@ -189,7 +189,7 @@ export default function HeroCarousel() {
         >
           {/* Background Image */}
           <Image
-            src={currentConfig.image}
+            src={encodeURI(currentConfig.image)}
             alt={t(currentConfig.titleKey) as string}
             layout="fullWidth"
             className="hero-slide__image"

@@ -119,7 +119,11 @@ export default function Monuments() {
       exit={{ opacity: 0 }}
       className="w-full min-h-screen bg-transparent text-[#E6D8B8] relative overflow-hidden pb-20"
     >
-      <SEO title={t('nav.monuments') || 'Monuments'} />
+      <SEO 
+        title={t('nav.monuments') || 'Monuments'} 
+        description="Comprehensive directory of 40 Centrally Protected Monuments across 15 districts of Odisha under Archaeological Survey of India (ASI) Puri Circle."
+        url="/monuments"
+      />
 
       {/* Background Glows for depth */}
       <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-orange-600/10 blur-[120px] pointer-events-none" />
@@ -230,7 +234,7 @@ export default function Monuments() {
                     <Image
                       alt={getMonumentName(m)}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                      src={m.images[0] || '/placeholder.svg'}
+                      src={encodeURI(m.images[0] || '/placeholder.svg')}
                       layout="fullWidth"
                       loading="lazy"
                       background="auto"

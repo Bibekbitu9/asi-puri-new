@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/SEO';
 import { motion } from 'framer-motion';
 import { FileText, Download } from 'lucide-react';
 
@@ -69,13 +69,11 @@ export default function Forms() {
       exit={{ opacity: 0 }}
       className="w-full min-h-screen bg-transparent text-[#E6D8B8] relative overflow-hidden pb-20"
     >
-      <Helmet>
-        <title>Forms - ASI Puri Circle</title>
-        <meta 
-          name="description" 
-          content="Download official statutory forms and application formats for permissions and licences from the Archaeological Survey of India, Puri Circle." 
-        />
-      </Helmet>
+      <SEO 
+        title="Statutory Forms" 
+        description="Download official statutory application forms (Forms I through IX) for permissions, excavation licences, construction, and filming operations under ASI Puri Circle." 
+        url="/forms" 
+      />
 
       {/* Background Glows for depth */}
       <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-orange-600/10 blur-[120px] pointer-events-none" />
@@ -110,10 +108,10 @@ export default function Forms() {
           {forms.map((form, idx) => (
             <motion.li key={idx} variants={itemVariants}>
               <a
-                href={form.href}
+                href={encodeURI(form.href)}
                 download={form.filename}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 aria-label={`Download ${form.title} in DOCX format`}
                 className="group flex items-center p-5 bg-[var(--color-glass-surface)] backdrop-blur-xl rounded-2xl border border-[var(--color-glass-border)] text-[var(--color-dark-stone)] hover:border-[var(--color-saffron)] hover:bg-white/50 transition-all duration-300 shadow-sm focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[var(--color-saffron)]"
               >

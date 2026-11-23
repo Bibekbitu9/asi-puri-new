@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/SEO';
 import { motion } from 'framer-motion';
 import { Pickaxe, Download } from 'lucide-react';
 
@@ -42,9 +42,11 @@ export default function Excavations() {
       exit={{ opacity: 0 }}
       className="w-full min-h-screen bg-transparent text-[#E6D8B8] relative overflow-hidden pb-20"
     >
-      <Helmet>
-        <title>Excavations - ASI Puri Circle</title>
-      </Helmet>
+      <SEO 
+        title="Excavations" 
+        description="Archaeological excavation reports and publications on Barabati Fort, Parabhadi, and Ratnagiri under ASI Puri Circle." 
+        url="/excavations" 
+      />
 
       {/* Background Glows for depth */}
       <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-orange-600/10 blur-[120px] pointer-events-none" />
@@ -93,9 +95,9 @@ export default function Excavations() {
                 </p>
 
                 <a
-                  href={report.href}
+                  href={encodeURI(report.href)}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="mt-8 inline-flex items-center gap-2 font-bold text-[var(--color-saffron)] hover:text-[var(--color-indigo)] transition-colors group/link w-fit"
                 >
                   <Download className="w-5 h-5 group-hover/link:-translate-y-1 transition-transform" />

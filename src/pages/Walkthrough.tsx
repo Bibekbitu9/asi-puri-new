@@ -48,7 +48,11 @@ export default function Walkthrough() {
       exit={{ opacity: 0 }}
       className="w-full min-h-screen bg-transparent text-[#E6D8B8] relative overflow-hidden pb-20"
     >
-      <SEO title="Virtual Walkthroughs" />
+      <SEO 
+        title="Virtual Walkthroughs" 
+        description="Experience 360-degree virtual walkthroughs and explore ancient Buddhist complexes at Lalitagiri and Ratnagiri under ASI Puri Circle." 
+        url="/walkthrough" 
+      />
       
       {/* Background Glows for depth */}
       <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-orange-600/10 blur-[120px] pointer-events-none" />
@@ -94,7 +98,7 @@ export default function Walkthrough() {
                   <Image
                     alt={w.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    src={w.image}
+                    src={encodeURI(w.image)}
                     layout="fullWidth"
                     loading="lazy"
                   />
@@ -118,7 +122,7 @@ export default function Walkthrough() {
                   <a
                     href={w.url}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     className="mt-auto inline-flex items-center gap-2 font-bold text-[var(--color-saffron)] hover:text-[var(--color-indigo)] transition-colors group/link w-fit"
                   >
                     Start Walkthrough

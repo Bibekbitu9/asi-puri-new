@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://asi-puri.vercel.app/sitemap.xml
+Sitemap: https://asipuricircle.in/sitemap.xml

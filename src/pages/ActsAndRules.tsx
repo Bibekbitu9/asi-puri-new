@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/SEO';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { 
@@ -241,13 +241,11 @@ export default function ActsAndRules() {
       exit={{ opacity: 0 }}
       className="w-full min-h-screen bg-transparent text-[#E6D8B8] relative overflow-hidden pb-24"
     >
-      <Helmet>
-        <title>Acts, Rules &amp; Policies - ASI Puri Circle</title>
-        <meta 
-          name="description" 
-          content="Official acts, statutory rule letters, gazette notifications, and policy frameworks arranged year-wise governing Archaeological Survey of India, Puri Circle." 
-        />
-      </Helmet>
+      <SEO 
+        title="Acts, Rules & Policies" 
+        description="Official acts, statutory rule letters, gazette notifications, and policy frameworks arranged year-wise governing Archaeological Survey of India, Puri Circle." 
+        url="/acts-and-rules" 
+      />
 
       {/* Ambient Heritage Glows */}
       <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-orange-600/10 blur-[120px] pointer-events-none" />
@@ -435,7 +433,7 @@ export default function ActsAndRules() {
                         <a
                           href={encodeURI(doc.href)}
                           target="_blank"
-                          rel="noreferrer"
+                          rel="noopener noreferrer"
                           className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-gradient-to-r from-[var(--color-indigo)] via-[#8C3310] to-[var(--color-saffron)] text-white text-xs font-bold shadow-xs hover:shadow-md hover:brightness-105 active:scale-98 transition-all"
                           aria-label={`Read ${doc.title} in new tab`}
                         >

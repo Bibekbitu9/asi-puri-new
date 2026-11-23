@@ -76,7 +76,8 @@ export default function MonumentDetail() {
     "@type": "TouristAttraction",
     "name": name,
     "description": paragraphs[0] || "",
-    "image": `https://asi-puri.vercel.app${monument.images[0]}`,
+    "url": `https://asipuricircle.in/monuments/${monument.id}`,
+    "image": `https://asipuricircle.in${encodeURI(monument.images[0] || '')}`,
     "address": {
       "@type": "PostalAddress",
       "addressLocality": meta.locality,
@@ -92,7 +93,13 @@ export default function MonumentDetail() {
       exit={{ opacity: 0 }}
       className="bg-transparent min-h-screen pb-20 flex flex-col"
     >
-      <SEO title={name} description={paragraphs[0]?.substring(0, 150) + '...'} image={monument.images[0]} structuredData={structuredData} />
+      <SEO 
+        title={name} 
+        description={paragraphs[0]?.substring(0, 150) + '...'} 
+        image={monument.images[0]} 
+        url={`/monuments/${monument.id}`}
+        structuredData={structuredData} 
+      />
 
       {/* Cinematic Hero Header Section */}
       <section className="relative w-full min-h-[50vh] md:min-h-[65vh] flex flex-col justify-between overflow-hidden bg-[var(--color-dark-stone)] pb-6 gap-6 md:gap-8">
@@ -100,7 +107,7 @@ export default function MonumentDetail() {
         <Image
           alt={name}
           className="absolute inset-0 w-full h-full object-cover select-none z-0"
-          src={monument.images[0]}
+          src={encodeURI(monument.images[0] || '')}
           layout="fullWidth"
           fetchPriority="high"
           background="auto"
@@ -249,7 +256,7 @@ export default function MonumentDetail() {
                       <Image
                         alt={`${name} gallery thumbnail ${idx + 1}`}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 select-none"
-                        src={img}
+                        src={encodeURI(img)}
                         layout="fullWidth"
                         loading="lazy"
                         background="auto"
@@ -427,7 +434,7 @@ export default function MonumentDetail() {
               className="max-w-4xl max-h-[85vh] flex flex-col items-center justify-center gap-4 relative z-20 pointer-events-none"
             >
               <img
-                src={monument.images[activeImageIndex]}
+                src={encodeURI(monument.images[activeImageIndex])}
                 alt={`${name} detail`}
                 className="max-w-full max-h-[75vh] object-contain rounded-2xl border border-white/10 shadow-2xl"
               />
