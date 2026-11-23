@@ -20,7 +20,7 @@ const CAROUSEL_SLIDES = [
   {
     id: 2,
     monumentId: 1,
-    image: '/images/(1) Shri Jagannath Temple/1.jpg',
+    image: '/images/(1) Shri Jagannath Temple/4.jpg',
     titleKey: 'hero_slider.slide2_title',
     subKey: 'hero_slider.slide2_sub',
     ctaKey: 'hero_slider.slide2_cta',

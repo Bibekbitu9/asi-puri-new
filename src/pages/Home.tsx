@@ -167,7 +167,7 @@ export default function Home() {
                 <Image
                   alt="Shri Jagannath Temple"
                   className="w-full h-[300px] md:h-[500px] object-cover hover:scale-105 transition-transform duration-1000"
-                  src="/images/(1) Shri Jagannath Temple/1.jpg"
+                  src={encodeURI('/images/(1) Shri Jagannath Temple/4.jpg')}
                   layout="fullWidth"
                   loading="lazy"
                 />
